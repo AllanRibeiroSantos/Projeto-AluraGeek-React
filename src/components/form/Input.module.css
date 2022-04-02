@@ -1,0 +1,8 @@
+.form_input {
+  height: 2.5rem;
+  border: none;
+  border-radius: 20px;
+  min-width: 393px;
+  background-color: var(--fundo_cinza);
+  padding: 0 1rem;
+}

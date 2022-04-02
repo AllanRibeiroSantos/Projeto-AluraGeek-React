@@ -1,0 +1,21 @@
+.header_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2.5rem 0;
+  margin: auto;
+  width: var(--largura_conteudo1);
+}
+
+.logo_container{
+  display: flex;
+  align-items: center;
+}
+
+.logo_container p {
+  margin-right: 2rem;
+}
+
+.header_logoName {
+  color: var(--cor_azul);
+}

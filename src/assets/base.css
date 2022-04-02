@@ -1,0 +1,10 @@
+:root {
+    --cor_azul: #2A7AE4;
+    --fundo_cinza: #F5F5F5;
+
+    --largura_conteudo1: 75%;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}
