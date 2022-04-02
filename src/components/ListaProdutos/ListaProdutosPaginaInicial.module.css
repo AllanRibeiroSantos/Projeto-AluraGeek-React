@@ -1,0 +1,18 @@
+.section_container {
+  width: var(--largura_conteudo1);
+  margin: auto;
+}
+
+.section_card_container {
+  display: flex;
+}
+
+.main_titulo {
+  font-size: var(--tamanho_fonteh2);
+  margin-top: 4rem;
+  margin-bottom: 1rem;
+}
+
+.section_container:last-child {
+  margin-bottom: 4rem;
+}

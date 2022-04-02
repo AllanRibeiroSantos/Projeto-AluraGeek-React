@@ -18,7 +18,24 @@
   margin-top: 1.5rem;
 }
 
+form {
+  display: flex;
+  flex-direction: column;
+}
 
 .footer_paragr {
   font-weight: 700;
+}
+
+textarea {
+  box-sizing: border-box;
+  padding: 1rem 0.75rem;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  height: 82px;
+  border: none;
+  border-bottom: 1px solid #C8C8C8;
+  resize: none;
+  color: var(--cor_cinza_claro);
+  font-weight: 400;
 }

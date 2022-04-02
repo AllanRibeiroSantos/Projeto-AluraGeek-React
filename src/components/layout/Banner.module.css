@@ -12,6 +12,8 @@
 .banner_descricao {
   padding: 2rem 9.5rem;
   height: auto;
+  width: var(--largura_conteudo1);
+  margin: 0 auto;
 }
 
 .banner_titulo {

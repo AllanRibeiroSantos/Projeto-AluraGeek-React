@@ -1,0 +1,26 @@
+.card_container {
+  margin-right: 1rem;
+}
+
+
+.listaProdutos_cardimage {
+  width: 176px;
+  height: 174px;
+  background-color: blue;
+}
+
+.card_container p {
+  margin-top: 0.5rem;
+}
+
+.card_nome_produto {
+  font-size: var(--tamanho_fonte14);
+}
+
+.card_preco_produto {
+  font-weight: 700;
+}
+
+.card_ver_produto {
+  color: var(--cor_azul);
+}

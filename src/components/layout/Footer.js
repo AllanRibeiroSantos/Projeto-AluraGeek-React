@@ -11,19 +11,20 @@ export default function Footer() {
         <div>
           <AluraLogo />
         </div>
-      <ul>
-        <li>Quem somos nós</li>
-        <li>Política de privacidade</li>
-        <li>Programa fidelidade</li>
-        <li>Nossas lojas</li>
-        <li>Quero ser franqueado</li>
-        <li>Anuncie aqui</li>
-      </ul>
-      <form>
-        <p className={styles.footer_paragr}>Fale conosco</p>
-        <Input />
-        <ButtonAzul text='Enviar mensagem' />
-      </form>
+        <ul>
+          <li>Quem somos nós</li>
+          <li>Política de privacidade</li>
+          <li>Programa fidelidade</li>
+          <li>Nossas lojas</li>
+          <li>Quero ser franqueado</li>
+          <li>Anuncie aqui</li>
+        </ul>
+        <form>
+          <p className={styles.footer_paragr}>Fale conosco</p>
+          <Input type='text' labeltext='Nome' placeholder='Nome' />
+          <textarea placeholder='Escreva sua mensagem' />
+          <ButtonAzul text='Enviar mensagem' />
+        </form>
       </div>
     </footer>
   )
