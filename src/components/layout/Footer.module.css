@@ -1,0 +1,24 @@
+.footer_area {
+  background-color: var(--fundo_azul_claro);
+  padding: 4rem 0;
+}
+
+.footer_container {
+  display: flex;
+  justify-content: space-between;
+  width: var(--largura_conteudo1);
+  margin: auto;
+}
+
+.footer_area li {
+  color: var(--cor_cinza_escuro);
+}
+
+.footer_area li:not(:first-child) {
+  margin-top: 1.5rem;
+}
+
+
+.footer_paragr {
+  font-weight: 700;
+}

@@ -1,6 +1,12 @@
 :root {
     --cor_azul: #2A7AE4;
+    --cor_cinza_claro: #A2A2A2;
+    --cor_cinza_escuro: #464646;
+    
     --fundo_cinza: #F5F5F5;
+    --fundo_azul_claro: #EAF2FD;
+
+    --espacamento_footer: calc(100vh - 8rem);
 
     --botao_branco: #FFF;
     --botao_branco_hover: #D4E4FA;
@@ -9,7 +15,7 @@
 
     --largura_conteudo1: 75%;
 
-    --tamanho_fonte14: 0.8;
+    --tamanho_fonte14: 0.875;
     --tamanho_fonte18: 1.125rem;
     --tamanho_fonteh2: 3.25rem;
     --tamanho_fonteh3: 2rem;
@@ -17,4 +23,8 @@
 
 * {
     font-family: 'Raleway', sans-serif;
+}
+
+main {
+    min-height: var(--espacamento_footer);
 }

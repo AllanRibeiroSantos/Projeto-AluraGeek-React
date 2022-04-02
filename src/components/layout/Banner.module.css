@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: end;
-  background: url('./img/banner-image.png') no-repeat;
+  background: url('../../img/banner-image.png') no-repeat;
   background-size: 100vw 22rem;
   min-height: 22rem;
   color: white;

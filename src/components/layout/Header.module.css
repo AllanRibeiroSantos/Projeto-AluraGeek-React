@@ -8,15 +8,6 @@
   font-size: var(--tamanho_fonte18);
 }
 
-.logo_container{
+.header_logoForm {
   display: flex;
-  align-items: center;
-}
-
-.logo_container p {
-  margin-right: 2rem;
-}
-
-.header_logoName {
-  color: var(--cor_azul);
 }

@@ -1,0 +1,9 @@
+.logo_container{
+  display: flex;
+  align-items: center;
+}
+
+.header_logoName {
+  color: var(--cor_azul);
+  margin-left: 2px;
+}
