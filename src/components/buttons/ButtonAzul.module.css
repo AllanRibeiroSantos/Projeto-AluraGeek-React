@@ -1,0 +1,12 @@
+.botao_azul {
+  background-color: var(--botao_azul);
+  color: white;
+  height: 3rem;
+  padding: 1rem;
+  width: 182px;
+  border: none;
+}
+
+.botao_azul:hover {
+  background-color: var(--botao_azul_hover);
+}

@@ -1,1 +1,21 @@
+.banner_image {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: end;
+  background: url('./img/banner-image.png') no-repeat;
+  background-size: 100vw 22rem;
+  min-height: 22rem;
+  color: white;
+}
 
+.banner_descricao {
+  padding: 2rem 9.5rem;
+}
+
+.banner_titulo{
+  font-size: var(--tamanho_fonteh2);
+}
+.espacamento_paragr {
+  margin: 1rem 0;
+}

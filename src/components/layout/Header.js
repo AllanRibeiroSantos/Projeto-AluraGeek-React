@@ -12,7 +12,7 @@ export default function Header() {
         <p><span className={styles.header_logoName}>Alura</span>Geek</p>
         <Input type='text' placeholder='O que deseja encontrar?' />
       </div>
-      <Button text='Menu administrador' />
+      <Button text='Login' />
     </header>
   )
 }

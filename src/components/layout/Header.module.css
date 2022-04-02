@@ -5,6 +5,7 @@
   padding: 2.5rem 0;
   margin: auto;
   width: var(--largura_conteudo1);
+  font-size: var(--tamanho_fonte18);
 }
 
 .logo_container{

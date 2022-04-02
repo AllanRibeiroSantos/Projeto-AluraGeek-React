@@ -1,7 +1,12 @@
 .button {
-  background-color: white;
+  background-color: var(--botao_branco);
   border: 1px solid var(--cor_azul);
   color: var(--cor_azul);
   height: 3rem;
   padding: 1rem;
+  width: 182px;
+}
+
+.button:hover {
+  background-color: var(--botao_branco_hover);
 }

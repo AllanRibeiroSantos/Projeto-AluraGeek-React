@@ -2,9 +2,19 @@
     --cor_azul: #2A7AE4;
     --fundo_cinza: #F5F5F5;
 
+    --botao_branco: #FFF;
+    --botao_branco_hover: #D4E4FA;
+    --botao_azul: #2A7AE4;
+    --botao_azul_hover: #5595E9;
+
     --largura_conteudo1: 75%;
+
+    --tamanho_fonte14: 0.8;
+    --tamanho_fonte18: 1.125rem;
+    --tamanho_fonteh2: 3.25rem;
+    --tamanho_fonteh3: 2rem;
 }
 
-body {
-    font-family: 'Open Sans', sans-serif;
+* {
+    font-family: 'Raleway', sans-serif;
 }
