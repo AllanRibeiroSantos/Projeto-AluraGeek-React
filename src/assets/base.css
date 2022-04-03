@@ -7,7 +7,7 @@
     --fundo_azul_claro: #EAF2FD;
 
     --espacamento_footer: calc(100vh - 8rem);
-    --largura_conteudo1: 75%;
+    --largura_conteudo1: calc(100% - 19rem);
 
     --botao_branco: #FFF;
     --botao_branco_hover: #D4E4FA;
@@ -20,7 +20,7 @@
     --tamanho_fonteh3: 2rem;
 }
 
-* {
+*, body {
     font-family: 'Raleway', sans-serif;
 }
 

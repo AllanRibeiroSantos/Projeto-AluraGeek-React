@@ -9,4 +9,5 @@
 
 .botao_azul:hover {
   background-color: var(--botao_azul_hover);
+  cursor: pointer;
 }

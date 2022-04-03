@@ -10,4 +10,5 @@
 
 .header_logoForm {
   display: flex;
+  align-items: center;
 }

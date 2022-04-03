@@ -8,3 +8,15 @@
   color: #A2A2A2;
   margin-left: 2rem;
 }
+
+.search_container {
+  display: flex;
+  align-items: center;
+}
+
+.lupa_icon {
+  display: flex;
+  align-items: center;
+  font-size: 2rem;
+  color: var(--cor_cinza_claro);
+}

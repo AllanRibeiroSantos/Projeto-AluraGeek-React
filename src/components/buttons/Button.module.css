@@ -9,4 +9,5 @@
 
 .button:hover {
   background-color: var(--botao_branco_hover);
+  cursor: pointer;
 }

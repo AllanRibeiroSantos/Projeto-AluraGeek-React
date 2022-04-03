@@ -3,14 +3,25 @@
   margin: auto;
 }
 
+.main_categoria_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 4rem;
+  margin-bottom: 1rem;
+}
+
+.main_categoria_container p {
+  color: var(--cor_azul);
+}
+
 .section_card_container {
   display: flex;
+
 }
 
 .main_titulo {
   font-size: var(--tamanho_fonteh2);
-  margin-top: 4rem;
-  margin-bottom: 1rem;
 }
 
 .section_container:last-child {

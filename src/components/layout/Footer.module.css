@@ -39,3 +39,44 @@ textarea {
   color: var(--cor_cinza_claro);
   font-weight: 400;
 }
+
+.footer_contatos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 0;
+}
+
+.footer_contatos p:nth-child(2) {
+  margin-top: 1rem;
+  margin-bottom: .5rem;
+}
+
+.contatos_nome {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.contatos_redes_sociais {
+  display: flex;
+  justify-content: space-between;
+  width: 200px;
+  font-size: 40px;
+}
+
+.social_github {
+  color: #000;
+}
+
+.social_linkedin {
+  color: #0A66C2;
+}
+
+.social_youtube {
+  color: #FF0000;
+}
+
+.contatos_redes_sociais a:visited { /* Não esta funcionando */
+  font-style: none;
+  text-decoration: none;
+}

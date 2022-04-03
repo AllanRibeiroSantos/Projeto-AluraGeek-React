@@ -1,7 +1,6 @@
-.card_container {
+.card_container:not(:last-child) {
   margin-right: 1rem;
 }
-
 
 .listaProdutos_cardimage {
   width: 176px;
