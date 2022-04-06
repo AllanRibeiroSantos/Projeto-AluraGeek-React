@@ -8,14 +8,18 @@
 
     --espacamento_footer: calc(100vh - 8rem);
     --largura_conteudo1: calc(100% - 19rem);
+    --largura_conteudo2: calc(100% - 4rem);
+    --largura_conteudo3: calc(100% - 2.35375rem);
 
     --botao_branco: #FFF;
     --botao_branco_hover: #D4E4FA;
     --botao_azul: #2A7AE4;
     --botao_azul_hover: #5595E9;
 
-    --tamanho_fonte14: 0.875;
+    --tamanho_fonte10: 0.6475rem;
+    --tamanho_fonte14: 0.875rem;
     --tamanho_fonte18: 1.125rem;
+    --tamanho_fonte22: 1.375rem;
     --tamanho_fonteh2: 2.375rem;
     --tamanho_fonteh3: 2rem;
 }

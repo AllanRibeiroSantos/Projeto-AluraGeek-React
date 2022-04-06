@@ -4,10 +4,24 @@
 }
 
 .footer_container {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-areas: 'logo quemsomos form form';
+  column-gap: 1.5rem;
   width: var(--largura_conteudo1);
   margin: auto;
+}
+
+.footer_aluraLogoFooter {
+  grid-area: logo;
+}
+
+.footer_quemsomos {
+  grid-area: quemsomos;
+}
+
+.footer_form {
+  grid-area: form;
 }
 
 .footer_area li {
@@ -44,7 +58,9 @@ textarea {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: auto;
   padding: 2rem 0;
+  width: var(--largura_conteudo3);
 }
 
 .footer_contatos p:nth-child(2) {
@@ -79,4 +95,47 @@ textarea {
 .contatos_redes_sociais a:visited { /* Não esta funcionando */
   font-style: none;
   text-decoration: none;
+}
+
+@media screen and (max-width: 1024px) {
+  .footer_container {
+    width: var(--largura_conteudo2);
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-areas: 
+      'logo form form'
+      'quemsomos form form'
+      'quemsomos form form';
+    grid-template-rows: 1fr 4fr;
+    column-gap: 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .footer_container {
+    width: var(--largura_conteudo3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .footer_quemsomos {
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .footer_form {
+    width: 100%;
+  }
+
+  .footer_area {
+    background-color: var(--fundo_azul_claro);
+    padding-top: 1.5rem;
+    padding-bottom: 1rem;
+  }
+
+  .footer_contatos p, .contatos_nome {
+    text-align: center;
+  }
 }

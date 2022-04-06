@@ -1,0 +1,15 @@
+.footer_logo_container{
+  display: flex;
+  align-items: center;
+}
+
+.footer_logoName {
+  color: var(--cor_azul);
+  margin-left: 2px;
+}
+
+@media screen and (max-width: 768px) {
+  /* .footer_logo_container {
+    margin-top: -1.5rem;
+  } */
+}

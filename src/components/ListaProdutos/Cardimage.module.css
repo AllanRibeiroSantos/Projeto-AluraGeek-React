@@ -23,3 +23,15 @@
 .card_ver_produto {
   color: var(--cor_azul);
 }
+
+@media screen and (max-width: 1024px) {
+  .listaProdutos_cardimage {
+    width: 164px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .listaProdutos_cardimage {
+    width: 156px;
+  }
+}

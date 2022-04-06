@@ -11,4 +11,32 @@
 .header_logoForm {
   display: flex;
   align-items: center;
+  position: relative;
+}
+
+.lupa_icon {
+  display: block;
+}
+.lupa_icon_smart {
+  display: none;
+}
+
+@media screen and (max-width: 1024px) {
+  .header_container {
+    width: var(--largura_conteudo2);
+    padding: 1rem 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .header_container {
+    width: var(--largura_conteudo3);
+  }
+
+  .lupa_icon_smart {
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+    color: #000;
+  }
 }

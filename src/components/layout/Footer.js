@@ -1,19 +1,19 @@
 import React from 'react';
 import ButtonAzul from '../buttons/ButtonAzul';
 import Input from '../form/Input';
-import AluraLogo from './AluraLogo';
 import styles from './Footer.module.css';
 import { BsGithub, BsLinkedin, BsYoutube } from 'react-icons/bs';
+import AluraLogoFooter from './AluraLogoFooter';
 
 export default function Footer() {
   return (
     <footer>
       <div className={styles.footer_area}>
         <div className={styles.footer_container}>
-          <div>
-            <AluraLogo />
+          <div className={styles.footer_aluraLogoFooter}>
+            <AluraLogoFooter />
           </div>
-          <ul>
+          <ul className={styles.footer_quemsomos}>
             <li>Quem somos nós</li>
             <li>Política de privacidade</li>
             <li>Programa fidelidade</li>
@@ -21,7 +21,7 @@ export default function Footer() {
             <li>Quero ser franqueado</li>
             <li>Anuncie aqui</li>
           </ul>
-          <form>
+          <form className={styles.footer_form}>
             <p className={styles.footer_paragr}>Fale conosco</p>
             <Input type='text' labeltext='Nome' placeholder='Nome' />
             <textarea placeholder='Escreva sua mensagem' />

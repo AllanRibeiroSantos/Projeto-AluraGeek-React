@@ -17,7 +17,8 @@
 
 .section_card_container {
   display: flex;
-
+  width: 100%;
+  overflow: hidden;
 }
 
 .main_titulo {
@@ -26,4 +27,24 @@
 
 .section_container:last-child {
   margin-bottom: 4rem;
+}
+
+@media screen and (max-width: 1024px) {
+  .main_categoria_container {
+    margin-top: 2rem;
+  }
+
+  .section_container {
+    width: var(--largura_conteudo2);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .section_container {
+    width: var(--largura_conteudo3);
+  }
+
+  .main_categoria_container {
+    margin-top: 1rem;
+  }
 }

@@ -17,6 +17,11 @@ export default function ListaProdutosPaginaInicial({ categoriaProduto }) {
         <Cardimage />
         <Cardimage />
         <Cardimage />
+        <Cardimage />
+        <Cardimage />
+        <Cardimage />
+        <Cardimage />
+        <Cardimage />
       </div>
     </section>
 

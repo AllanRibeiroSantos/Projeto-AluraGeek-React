@@ -4,10 +4,22 @@
   color: var(--cor_azul);
   height: 3rem;
   padding: 1rem;
-  width: 182px;
+  min-width: 182px;
 }
 
 .button:hover {
   background-color: var(--botao_branco_hover);
   cursor: pointer;
+}
+
+@media screen and (max-width: 1024px) {
+  .button {
+    min-width: 150px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .button {
+    min-width: 120px;
+  }
 }
