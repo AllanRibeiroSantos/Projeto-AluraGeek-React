@@ -17,5 +17,6 @@
 }
 
 .form_input::placeholder {
-  color: red
+  color: var(--cor_cinza_claro);
+  font-size: 1rem;
 }

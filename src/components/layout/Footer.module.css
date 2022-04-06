@@ -80,21 +80,16 @@ textarea {
   font-size: 40px;
 }
 
-.social_github {
+.social_github a {
   color: #000;
 }
 
-.social_linkedin {
+.social_linkedin a {
   color: #0A66C2;
 }
 
-.social_youtube {
+.social_youtube a {
   color: #FF0000;
-}
-
-.contatos_redes_sociais a:visited { /* Não esta funcionando */
-  font-style: none;
-  text-decoration: none;
 }
 
 @media screen and (max-width: 1024px) {
