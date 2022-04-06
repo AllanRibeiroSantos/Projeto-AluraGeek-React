@@ -1,6 +1,8 @@
 .logo_container{
   display: flex;
   align-items: center;
+  color: #000;
+  text-decoration-line: none; /* Não funciona */
 }
 
 .header_logoName {

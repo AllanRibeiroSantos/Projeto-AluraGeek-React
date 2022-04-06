@@ -1,0 +1,32 @@
+.login_main_container {
+  display: flex;
+  justify-content: center;
+  background-color: var(--fundo_cinza);
+  height: var(--espacamento_footer);
+}
+
+.login_form_container {
+  display: flex;
+  justify-content: center;
+  width: 26.4375rem;
+}
+
+.login_form_container label {
+  /* text-align: center; */
+  font-size: var(--tamanho_fonte18);
+}
+
+.login_form_container div:not(:first-child) {
+  margin-top: 1.5rem;
+}
+
+@media screen and (max-width: 1024px) {
+  .login_form_container {
+    width: 275px;
+  }
+
+  .login_form_button {
+    display: flex;
+    justify-content: center;
+  }
+}
