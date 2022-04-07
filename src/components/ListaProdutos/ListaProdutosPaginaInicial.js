@@ -18,19 +18,59 @@ export default function ListaProdutosPaginaInicial({ categoriaProduto }) {
         <h2 className={styles.main_titulo}>{categoriaProduto}</h2>
         <p>Ver tudo <AiOutlineArrowRight /></p>
       </div>
+
+{/* Devo fazer um loop para cada categoria (.section_container) devidamente com as suas informações colocadas em um json. Fazer também um loop para cada card. O json terá as informações de categoria e cardsrc. */}
+
       <div className={styles.section_card_container}>
-        <Cardimage cardsrc={list1src1} />
-        <Cardimage cardsrc={list1src2} />
-        <Cardimage cardsrc={list1src3} />
-        <Cardimage cardsrc={list1src4} />
-        <Cardimage cardsrc={list1src5} />
-        <Cardimage cardsrc={list1src6} />
-        <Cardimage cardsrc={list2src1} />
-        <Cardimage cardsrc={list2src2} />
+        <Cardimage
+          nome_produto='Produto XYZ'
+          preco_produto='R$ 60,00'
+          to='/produto' // Redirecionamento
+          cardsrc={list1src1} //URL da imagem
+        />
+        <Cardimage
+          nome_produto='Produto XYZ'
+          preco_produto='R$ 60,00'
+          to='/produto'
+          cardsrc={list1src2}
+        />
+        <Cardimage
+          nome_produto='Produto XYZ'
+          preco_produto='R$ 60,00'
+          to='/produto'
+          cardsrc={list1src3}
+        />
+        <Cardimage
+          nome_produto='Produto XYZ'
+          preco_produto='R$ 60,00'
+          to='/produto'
+          cardsrc={list1src4}
+        />
+        <Cardimage
+          nome_produto='Produto XYZ'
+          preco_produto='R$ 60,00'
+          to='/produto'
+          cardsrc={list1src5}
+        />
+        <Cardimage
+          nome_produto='Produto XYZ'
+          preco_produto='R$ 60,00'
+          to='/produto'
+          cardsrc={list1src6}
+        />
+        <Cardimage
+          nome_produto='Produto XYZ'
+          preco_produto='R$ 60,00'
+          to='/produto'
+          cardsrc={list2src1}
+        />
+        <Cardimage
+          nome_produto='Produto XYZ'
+          preco_produto='R$ 60,00'
+          to='/produto'
+          cardsrc={list2src2}
+        />
       </div>
-
-      {/* Devo fazer um loop para cada categoria (.section_container) devidamente com as suas informações colocadas em um json. Fazer também um loop para cada card. O json terá as informações de categoria e cardsrc. */}
-
     </section>
 
   )

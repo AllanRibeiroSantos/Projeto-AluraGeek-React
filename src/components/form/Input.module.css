@@ -4,10 +4,6 @@
   margin-top: 0.5rem;
 }
 
-.form_label {
-  display: none;
-}
-
 .form_input {
   box-sizing: border-box;
   border: none;

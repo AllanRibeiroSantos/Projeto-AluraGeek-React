@@ -1,0 +1,29 @@
+.produto_section_container {
+  min-height: var(--espacamento_footer_produto);
+  background-color: var(--fundo_cinza);
+}
+
+.produto_container {
+  display: flex;
+  width: var(--largura_conteudo1);
+  padding-top: 4rem;
+  margin: auto;
+}
+
+.produto_container_image {
+  margin-right: 1rem;
+}
+
+.produto_container_descricao {
+  display: flex;
+  flex-direction: column;
+}
+
+.produto_container_descricao h2 {
+  font-size: var(--tamanho_fonteh1);
+}
+
+.produto_container_descricao p {
+  margin-top: 0.5rem;
+  font-weight: 400;
+}

@@ -1,34 +1,39 @@
 :root {
-    --cor_azul: #2A7AE4;
-    --cor_cinza_claro: #A2A2A2;
-    --cor_cinza_escuro: #464646;
-    
-    --fundo_cinza: #F5F5F5;
-    --fundo_cinza_login: #E5E5E5;
-    --fundo_azul_claro: #EAF2FD;
+	--cor_azul: #2A7AE4;
+	--cor_cinza_claro: #A2A2A2;
+	--cor_cinza_escuro: #464646;
+	
+	--fundo_cinza: #F5F5F5;
+	--fundo_cinza_login: #E5E5E5;
+	--fundo_azul_claro: #EAF2FD;
 
-    --espacamento_footer: calc(100vh - 8rem);
-    --largura_conteudo1: calc(100% - 19rem);
-    --largura_conteudo2: calc(100% - 4rem);
-    --largura_conteudo3: calc(100% - 2.35375rem);
+	--espacamento_footer: calc(100vh - 8rem);
+	--espacamento_footer_produto: calc(100vh - 1rem);
 
-    --botao_branco: #FFF;
-    --botao_branco_hover: #D4E4FA;
-    --botao_azul: #2A7AE4;
-    --botao_azul_hover: #5595E9;
+	--largura_conteudo1: calc(100% - 19rem);
+	--largura_conteudo2: calc(100% - 4rem);
+	--largura_conteudo3: calc(100% - 2.35375rem);
 
-    --tamanho_fonte10: 0.6475rem;
-    --tamanho_fonte14: 0.875rem;
-    --tamanho_fonte18: 1.125rem;
-    --tamanho_fonte22: 1.375rem;
-    --tamanho_fonteh2: 2.375rem;
-    --tamanho_fonteh3: 2rem;
+
+	--botao_branco: #FFF;
+	--botao_branco_hover: #D4E4FA;
+	--botao_azul: #2A7AE4;
+	--botao_azul_hover: #5595E9;
+
+	--tamanho_fonte10: 0.6475rem;
+	--tamanho_fonte14: 0.875rem;
+	--tamanho_fonte18: 1.125rem;
+	--tamanho_fonte22: 1.375rem;
+	--tamanho_fonteh1: 3.25rem; /* 52 */
+	--tamanho_fonteh2: 2.375rem; /* 38 */
+	--tamanho_fonteh3: 2rem; /* 36 */
 }
 
-*, body {
-    font-family: 'Raleway', sans-serif;
+header, main, footer {
+	font-family: 'Raleway', sans-serif, 'Open Sans';
+	font-weight: 400;
 }
 
 main {
-    min-height: var(--espacamento_footer);
+	min-height: var(--espacamento_footer);
 }
