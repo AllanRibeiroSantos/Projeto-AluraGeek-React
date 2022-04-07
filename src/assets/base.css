@@ -29,10 +29,14 @@
 	--tamanho_fonteh3: 2rem; /* 36 */
 }
 
-header, main, footer {
+*, body {
+	font-family: 'Raleway', sans-serif;
+}
+
+/* header, main, footer {
 	font-family: 'Raleway', sans-serif, 'Open Sans';
 	font-weight: 400;
-}
+} */
 
 main {
 	min-height: var(--espacamento_footer);
