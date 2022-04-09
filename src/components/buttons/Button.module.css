@@ -3,7 +3,6 @@
   border: 1px solid var(--cor_azul);
   color: var(--cor_azul);
   height: 3rem;
-  padding: 1rem;
   min-width: 182px;
 }
 
@@ -21,5 +20,6 @@
 @media screen and (max-width: 768px) {
   .button {
     min-width: 120px;
+    height: 40px;
   }
 }

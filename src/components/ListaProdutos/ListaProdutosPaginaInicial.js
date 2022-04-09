@@ -2,6 +2,7 @@ import React from 'react';
 import Cardimage from './Cardimage';
 import styles from './ListaProdutosPaginaInicial.module.css';
 import { AiOutlineArrowRight } from 'react-icons/ai';
+import { Link } from 'react-router-dom';
 import list1src1 from '../../img/listadeprodutos/produto1.png'
 import list1src2 from '../../img/listadeprodutos/produto2.png'
 import list1src3 from '../../img/listadeprodutos/produto3.png'
@@ -16,10 +17,12 @@ export default function ListaProdutosPaginaInicial({ categoriaProduto }) {
     <section className={styles.section_container}>
       <div className={styles.main_categoria_container}>
         <h2 className={styles.main_titulo}>{categoriaProduto}</h2>
-        <p>Ver tudo <AiOutlineArrowRight /></p>
+        <Link to='/todosprodutos' style={{ textDecoration: 'none' }} >
+          <p>Ver tudo <AiOutlineArrowRight /></p>
+        </Link>
       </div>
 
-{/* Devo fazer um loop para cada categoria (.section_container) devidamente com as suas informações colocadas em um json. Fazer também um loop para cada card. O json terá as informações de categoria e cardsrc. */}
+      {/* Devo fazer um loop para cada categoria (.section_container) devidamente com as suas informações colocadas em um json. Fazer também um loop para cada card. O json terá as informações de categoria e cardsrc. */}
 
       <div className={styles.section_card_container}>
         <Cardimage

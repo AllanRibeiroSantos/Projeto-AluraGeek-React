@@ -7,6 +7,7 @@ import Footer from './components/layout/Footer';
 import Login from './components/pages/Login';
 import Home from './components/pages/Home';
 import Produto from './components/pages/Produto';
+import TodosProdutos from './components/pages/TodosProdutos';
 
 class App extends Component {
   render() {
@@ -19,6 +20,7 @@ class App extends Component {
               <Route exact path='/' element={ <Home /> } />
               <Route path='/login' element={ <Login /> } />
               <Route path='/produto' element={ <Produto /> } />
+              <Route path='/todosprodutos' element={ <TodosProdutos /> } />
             </Routes>
           </main>
           <Footer />
