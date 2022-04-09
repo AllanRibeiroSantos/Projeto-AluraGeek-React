@@ -31,11 +31,15 @@
 
 @media screen and (max-width: 1024px) {
   .main_categoria_container {
-    margin-top: 2rem;
+    margin-top: 4rem;
   }
 
   .section_container {
     width: var(--largura_conteudo2);
+  }
+
+  .main_titulo {
+    font-size: var(--tamanho_fonte22);
   }
 }
 
@@ -46,5 +50,9 @@
 
   .main_categoria_container {
     margin-top: 1rem;
+  }
+
+  .section_container:last-child {
+    padding-bottom: 1rem;
   }
 }

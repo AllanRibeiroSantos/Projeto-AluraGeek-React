@@ -8,8 +8,8 @@ export default function Produto() {
     <>
       <section className={styles.produto_section_container}>
         <div className={styles.produto_container}>
-          <div>
-            <img className={styles.produto_container_image} src={produto1large} />
+          <div className={styles.produto_container_image}>
+            <img className={styles.produto_image} src={produto1large} />
           </div>
           <div className={styles.produto_container_descricao}>
             <h2>Produto XYZ</h2>
