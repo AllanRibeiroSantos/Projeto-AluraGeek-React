@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './TodosProdutos.module.css';
 import ButtonAzul from '../buttons/ButtonAzul';
 import CardimageTodosProdutos from '../ListaProdutos/CardimageTodosProdutos';
+import { Link } from 'react-router-dom';
 
 export default function TodosProdutos() {
   return (
@@ -9,7 +10,9 @@ export default function TodosProdutos() {
       <section className={styles.todosProdutos_section_container}>
         <div className={styles.todosProdutos_categoria}>
           <h2>Todos os produtos</h2>
-          <ButtonAzul text='Adicionar produto' />
+          <Link to='/novoproduto' style={{ textDecoration: 'none' }}>
+            <ButtonAzul text='Adicionar produto' />
+          </Link>
         </div>
         <div className={styles.todosProdutos_container}>
           <div>
