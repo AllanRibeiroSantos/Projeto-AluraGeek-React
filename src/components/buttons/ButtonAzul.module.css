@@ -4,6 +4,8 @@
   height: 3rem;
   width: 182px;
   border: none;
+  box-sizing: border-box;
+  padding: 0 1rem;
 }
 
 .botao_azul:hover {

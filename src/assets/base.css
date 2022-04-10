@@ -13,6 +13,8 @@
 	--largura_conteudo1: calc(100% - 19rem);
 	--largura_conteudo2: calc(100% - 4rem);
 	--largura_conteudo3: calc(100% - 2.35375rem);
+
+	--largura_conteudo_novoProduto1: calc(100% - 881px);
 	
 	--botao_branco: #FFF;
 	--botao_branco_hover: #D4E4FA;
@@ -34,8 +36,18 @@ body, header, main, footer, textarea {
 	font-weight: 400;
 }
 
-main {
-	min-height: var(--espacamento_footer);
+textarea {
+  box-sizing: border-box;
+  padding: 1rem 0.75rem;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  height: 82px;
+  border: none;
+  border-bottom: 1px solid #C8C8C8;
+  resize: none;
+  color: var(--cor_cinza_claro);
+  font-size: 1rem;
+  font-weight: 400;
 }
 
 @media screen and (max-width: 1024px) {

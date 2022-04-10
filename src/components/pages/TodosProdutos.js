@@ -108,7 +108,6 @@ export default function TodosProdutos() {
               cardsrc='url' //URL da imagem
             />
           </div>
-
         </div>
       </section>
     </>

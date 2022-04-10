@@ -8,6 +8,7 @@ import Login from './components/pages/Login';
 import Home from './components/pages/Home';
 import Produto from './components/pages/Produto';
 import TodosProdutos from './components/pages/TodosProdutos';
+import NovoProduto from './components/pages/NovoProduto';
 
 class App extends Component {
   render() {
@@ -21,6 +22,7 @@ class App extends Component {
               <Route path='/login' element={ <Login /> } />
               <Route path='/produto' element={ <Produto /> } />
               <Route path='/todosprodutos' element={ <TodosProdutos /> } />
+              <Route path='/novoproduto' element={ <NovoProduto /> } />
             </Routes>
           </main>
           <Footer />

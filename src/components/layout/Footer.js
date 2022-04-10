@@ -23,7 +23,7 @@ export default function Footer() {
           </ul>
           <form className={styles.footer_form}>
             <p className={styles.footer_paragr}>Fale conosco</p>
-            <Input type='text' labeltext='Nome' placeholder='Nome' />
+            <Input type='text' placeholder='Nome' />
             <textarea placeholder='Escreva sua mensagem' />
             <ButtonAzul text='Enviar mensagem' />
           </form>

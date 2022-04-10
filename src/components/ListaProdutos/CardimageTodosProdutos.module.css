@@ -2,9 +2,33 @@
   margin-right: 1rem;
 } */
 
+.cardtodosprodutos_container {
+  position: relative;
+
+}
+
 .cardtodosprodutos_listaProdutos_cardimage {
   width: 176px;
   height: 174px;
+  background-color: blue;
+}
+
+.trash_icon, .pencil_icon  {
+  position: absolute;
+  width: 18px;
+  top: 0;
+  right: 0;
+  color: #FFF;
+}
+
+.trash_icon  {
+  margin-right: 53px;
+  margin-top: 11px;
+}
+
+.pencil_icon {
+  margin-right: 11px;
+  margin-top: 11px;
 }
 
 .cardtodosprodutos_container p {

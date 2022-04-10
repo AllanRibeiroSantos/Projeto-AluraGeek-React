@@ -1,5 +1,4 @@
 .produto_section_container {
-  min-height: var(--espacamento_footer_produto);
   background-color: var(--fundo_cinza);
 }
 
@@ -13,14 +12,11 @@
 
 .produto_image {
   margin-right: 1rem;
-  /* flex-shrink: 2; */
 }
 
 .produto_container_descricao {
   display: flex;
   flex-direction: column;
-  /* min-width: 456px;
-  flex-shrink: 1; */
 }
 
 .produto_container_descricao h2 {
@@ -87,7 +83,6 @@
     width: 100vw;
     height: auto;
     margin: 0;
-    /* transform: translate(0, -5%); Analisar se compensa colocar */
   }
 
   .produto_container_descricao h2 {
