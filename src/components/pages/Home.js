@@ -8,7 +8,7 @@ export default function Home() {
   const [valorCategoria, setValorCategoria] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:3001/categorias',
+    fetch('https://my-json-server.typicode.com/AllanRibeiroSantos/Projeto-AluraGeek-React/categorias',
       {
         method: 'GET',
         headers: {

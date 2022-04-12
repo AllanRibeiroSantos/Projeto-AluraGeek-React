@@ -10,7 +10,7 @@ export default function ListaProdutosPaginaInicial({ categoriaProduto }) {
   const [valorProduto, setValorProduto] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:3001/produtos',
+    fetch('https://my-json-server.typicode.com/AllanRibeiroSantos/Projeto-AluraGeek-React/produtos',
       {
         method: 'GET',
         headers: {
