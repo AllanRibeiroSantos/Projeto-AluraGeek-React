@@ -48,6 +48,7 @@ textarea {
   color: var(--cor_cinza_claro);
   font-size: 1rem;
   font-weight: 400;
+	color: var(--cor_cinza_claro);
 }
 
 @media screen and (max-width: 1024px) {

@@ -3,8 +3,25 @@ import styles from './TodosProdutos.module.css';
 import ButtonAzul from '../buttons/ButtonAzul';
 import CardimageTodosProdutos from '../ListaProdutos/CardimageTodosProdutos';
 import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
 export default function TodosProdutos() {
+
+  const [valorProduto, setValorProduto] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:3001/produtos',
+      {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      .then(resposta => resposta.json())
+      .then(data => setValorProduto(data))
+      .catch(erro => console.log(erro))
+  }, [])
+
   return (
     <>
       <section className={styles.todosProdutos_section_container}>
@@ -15,102 +32,28 @@ export default function TodosProdutos() {
           </Link>
         </div>
         <div className={styles.todosProdutos_container}>
-          <div>
-            <CardimageTodosProdutos
-              nome_produto='Produto XYZ'
-              preco_produto='R$ 60,00'
-              to='/produto' // Redirecionamento
-              cardsrc='url' //URL da imagem
-            />
-          </div>
-          <div>
-            <CardimageTodosProdutos
-              nome_produto='Produto XYZ'
-              preco_produto='R$ 60,00'
-              to='/produto' // Redirecionamento
-              cardsrc='url' //URL da imagem
-            />
-          </div>
-          <div>
-            <CardimageTodosProdutos
-              nome_produto='Produto XYZ'
-              preco_produto='R$ 60,00'
-              to='/produto' // Redirecionamento
-              cardsrc='url' //URL da imagem
-            />
-          </div>
-          <div>
-            <CardimageTodosProdutos
-              nome_produto='Produto XYZ'
-              preco_produto='R$ 60,00'
-              to='/produto' // Redirecionamento
-              cardsrc='url' //URL da imagem
-            />
-          </div>
-          <div>
-            <CardimageTodosProdutos
-              nome_produto='Produto XYZ'
-              preco_produto='R$ 60,00'
-              to='/produto' // Redirecionamento
-              cardsrc='url' //URL da imagem
-            />
-          </div>
-          <div>
-            <CardimageTodosProdutos
-              nome_produto='Produto XYZ'
-              preco_produto='R$ 60,00'
-              to='/produto' // Redirecionamento
-              cardsrc='url' //URL da imagem
-            />
-          </div>
-          <div>
-            <CardimageTodosProdutos
-              nome_produto='Produto XYZ'
-              preco_produto='R$ 60,00'
-              to='/produto' // Redirecionamento
-              cardsrc='url' //URL da imagem
-            />
-          </div>
-          <div>
-            <CardimageTodosProdutos
-              nome_produto='Produto XYZ'
-              preco_produto='R$ 60,00'
-              to='/produto' // Redirecionamento
-              cardsrc='url' //URL da imagem
-            />
-          </div>
-          <div>
-            <CardimageTodosProdutos
-              nome_produto='Produto XYZ'
-              preco_produto='R$ 60,00'
-              to='/produto' // Redirecionamento
-              cardsrc='url' //URL da imagem
-            />
-          </div>
-          <div>
-            <CardimageTodosProdutos
-              nome_produto='Produto XYZ'
-              preco_produto='R$ 60,00'
-              to='/produto' // Redirecionamento
-              cardsrc='url' //URL da imagem
-            />
-          </div>
-          <div>
-            <CardimageTodosProdutos
-              nome_produto='Produto XYZ'
-              preco_produto='R$ 60,00'
-              to='/produto' // Redirecionamento
-              cardsrc='url' //URL da imagem
-            />
-          </div>
-          <div>
-            <CardimageTodosProdutos
-              nome_produto='Produto XYZ'
-              preco_produto='R$ 60,00'
-              to='/produto' // Redirecionamento
-              cardsrc='url' //URL da imagem
-            />
-          </div>
+          {valorProduto.map(card => (
+            <div>
+              <CardimageTodosProdutos
+                key={card.id}
+                nome_produto={card.nome}
+                preco_produto={card.valor}
+                to='/produto' // Redirecionamento
+                cardsrc={card.imagem} //URL da imagem
+              />
+            </div>
+          ))}
+          {valorProduto.map(card => (
+            <div>
+              <CardimageTodosProdutos
+                key={card.id}
+                nome_produto={card.nome}
+                preco_produto={card.valor}
+                to='/produto' // Redirecionamento
+                cardsrc={card.imagem} //URL da imagem
+              />
+            </div>
+          ))}
         </div>
       </section>
     </>
