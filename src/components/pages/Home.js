@@ -6,7 +6,6 @@ import { useEffect, useState } from 'react';
 export default function Home() {
 
   const [valorCategoria, setValorCategoria] = useState([]);
-
   useEffect(() => {
     fetch('https://my-json-server.typicode.com/AllanRibeiroSantos/Projeto-AluraGeek-React/categorias',
       {

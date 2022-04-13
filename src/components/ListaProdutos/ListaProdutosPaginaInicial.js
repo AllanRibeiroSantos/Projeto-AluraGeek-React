@@ -8,7 +8,6 @@ import { useEffect, useState } from 'react';
 export default function ListaProdutosPaginaInicial({ categoriaProduto }) {
 
   const [valorProduto, setValorProduto] = useState([]);
-
   useEffect(() => {
     fetch('https://my-json-server.typicode.com/AllanRibeiroSantos/Projeto-AluraGeek-React/produtos',
       {
@@ -40,7 +39,7 @@ export default function ListaProdutosPaginaInicial({ categoriaProduto }) {
             key={card.id}
             nome_produto={card.nome}
             preco_produto={card.valor}
-            to='/produto' // Redirecionamento
+            to={'/produto' +'/'+ card.id} // Redirecionamento
             cardsrc={card.imagem} //URL da imagem
           />
         ))}
