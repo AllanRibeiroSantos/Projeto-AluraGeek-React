@@ -3,9 +3,10 @@ import ListaProdutosPaginaInicial from '../ListaProdutos/ListaProdutosPaginaInic
 import Banner from '../layout/Banner';
 import { useEffect, useState } from 'react';
 
-export default function Home() {
+export default function Home({ idProdutoClicado }) {
 
   const [valorCategoria, setValorCategoria] = useState([]);
+  
   useEffect(() => {
     fetch('https://my-json-server.typicode.com/AllanRibeiroSantos/Projeto-AluraGeek-React/categorias',
       {
@@ -28,6 +29,7 @@ export default function Home() {
         <ListaProdutosPaginaInicial
           categoriaProduto={categorias.nome}
           key={categorias.id}
+          idProdutoClicado={idProdutoClicado}
         />
       ))}
     </>

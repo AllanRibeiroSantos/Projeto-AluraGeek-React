@@ -1,9 +1,10 @@
-import React from 'react';
+import { React } from 'react';
 import styles from './Produto.module.css';
 import produto1large from '../../img/produto/produto1large.png'
 import ListaProdutosPaginaInicial from '../ListaProdutos/ListaProdutosPaginaInicial';
 
-export default function Produto() {
+export default function Produto({ idProdutoEnviado }) {
+
   return (
     <>
       <section className={styles.produto_section_container}>

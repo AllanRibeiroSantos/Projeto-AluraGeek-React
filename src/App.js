@@ -1,4 +1,4 @@
-import { React, useEffect, useState } from 'react';
+import { React, useState, useEffect } from 'react';
 import Header from './components/layout/Header';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './assets/reset.css';
@@ -12,10 +12,11 @@ import NovoProduto from './components/pages/NovoProduto';
 
 function App() {
 
+  const [cardProduto, setCardProduto] = useState([]);
   const [valorProduto, setValorProduto] = useState([]);
 
   useEffect(() => {
-    fetch('https://my-json-server.typicode.com/AllanRibeiroSantos/Projeto-AluraGeek-React/produtos',
+    fetch(`https://my-json-server.typicode.com/AllanRibeiroSantos/Projeto-AluraGeek-React/produtos`,
       {
         method: 'GET',
         headers: {
@@ -27,12 +28,24 @@ function App() {
       .catch(erro => console.log(erro))
   }, [])
 
-  // function mostraId() {
-  //   valorProduto.map(data_produto => {
-  //     let id_produto = [];
-  //     id_produto.push(data_produto.id);
-  //   })
-  // }
+  function idProdutoClicado(id_produto) {
+    setCardProduto(id_produto);
+  }
+
+  function enviaProdutos() {
+    valorProduto.map(itens => {
+      const produto = [
+        {
+          id: itens.id,
+          nome: itens.nome,
+          valor: itens.valor,
+          imagem: itens.imagem,
+          categoria: itens.categoria,
+          descricao: itens.descricao
+        }
+      ]
+    })
+  }
 
   return (
     <>
@@ -40,9 +53,9 @@ function App() {
         <Header />
         <main>
           <Routes>
-            <Route exact path='/' element={<Home />} />
+            <Route exact path='/' element={<Home idProdutoClicado={idProdutoClicado} />} />
             <Route path='/login' element={<Login />} />
-            <Route path={'/produto/' + 2} element={<Produto />} />
+            <Route path='/produto/:id' element={<Produto idProdutoEnviado={cardProduto} />} />
             <Route path='/todosprodutos' element={<TodosProdutos />} />
             <Route path='/novoproduto' element={<NovoProduto />} />
           </Routes>

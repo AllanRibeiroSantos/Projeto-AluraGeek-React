@@ -5,11 +5,12 @@ import { AiOutlineArrowRight } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
-export default function ListaProdutosPaginaInicial({ categoriaProduto }) {
+export default function ListaProdutosPaginaInicial({ categoriaProduto, idProdutoClicado }) {
 
   const [valorProduto, setValorProduto] = useState([]);
+
   useEffect(() => {
-    fetch('https://my-json-server.typicode.com/AllanRibeiroSantos/Projeto-AluraGeek-React/produtos',
+    fetch(`https://my-json-server.typicode.com/AllanRibeiroSantos/Projeto-AluraGeek-React/produtos`,
       {
         method: 'GET',
         headers: {
@@ -39,8 +40,10 @@ export default function ListaProdutosPaginaInicial({ categoriaProduto }) {
             key={card.id}
             nome_produto={card.nome}
             preco_produto={card.valor}
-            to={'/produto' +'/'+ card.id} // Redirecionamento
+            to={'/produto/'+ card.id} // Redirecionamento
             cardsrc={card.imagem} //URL da imagem
+            idProdutoClicado={idProdutoClicado}
+            id_key={card.id}
           />
         ))}
       </div>

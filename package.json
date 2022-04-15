@@ -12,7 +12,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "backend": "json-server --watch db.json",
+    "backend": "json-server --watch db.json --port 3001",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
