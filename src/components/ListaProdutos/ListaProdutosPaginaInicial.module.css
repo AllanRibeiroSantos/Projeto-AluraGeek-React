@@ -38,8 +38,24 @@
     width: var(--largura_conteudo2);
   }
 
+  .section_card_container {
+    overflow: scroll;
+    overflow-y: hidden;
+  }
+
   .main_titulo {
     font-size: var(--tamanho_fonte22);
+  }
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .section_card_container::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .section_card_container {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
   }
 }
 
