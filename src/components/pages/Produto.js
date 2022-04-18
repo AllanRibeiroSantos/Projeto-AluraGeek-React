@@ -1,25 +1,32 @@
 import { React } from 'react';
 import styles from './Produto.module.css';
-import produto1large from '../../img/produto/produto1large.png'
-import ListaProdutosPaginaInicial from '../ListaProdutos/ListaProdutosPaginaInicial';
+import ListaProdutosSimilares from '../ListaProdutos/ListaProdutosSimilares';
 
-export default function Produto({ idProdutoEnviado }) {
+export default function Produto({ idProdutoEnviado, produtosEnviados }) {
+  // Lembrando que, da forma em que eu programei, a página SÓ IRÁ CARREGAR caso for clicado no botão Ver Produto, inclusive, caso você dê um F5, a página também não recarregará
+  
+  const produto = produtosEnviados.filter(itens => itens.id == idProdutoEnviado);
 
   return (
     <>
-      <section className={styles.produto_section_container}>
+    {produto.map(produto => (
+      <section className={styles.produto_section_container} key={produto.id}>
         <div className={styles.produto_container}>
           <div className={styles.produto_container_image}>
-            <img className={styles.produto_image} src={produto1large} />
+            <img className={styles.produto_image} src={produto.img_large} />
           </div>
           <div className={styles.produto_container_descricao}>
-            <h2>Produto XYZ</h2>
-            <p>R$ 60,00</p>
-            <p>Voluptas voluptatum quibusdam similique, class debitis alias maecenas eveniet ridiculus, facilis fusce! Ullam conubia? Sociis, minima malesuada habitasse distinctio sequi aliqua malesuada. Quisque deleniti proin expedita, aliquid litora. Iste recusandae? Commodo, quia ridiculus doloribus vero dictum? Penatibus donec placeat faucibus, dolorum do. Animi porta anim magnam</p>
+            <h2>{produto.nome}</h2>
+            <p>{produto.valor}</p>
+            <p>{produto.descricao}</p>
           </div>
         </div>
-        <ListaProdutosPaginaInicial categoriaProduto='Produtos similares' />
+        <ListaProdutosSimilares 
+        nomeCategoria='Produtos similares' 
+        categoriaProduto={produto.categoria} />
       </section>
+    ))}
+      
     </>
   )
 }

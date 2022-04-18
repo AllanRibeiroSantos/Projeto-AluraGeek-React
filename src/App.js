@@ -12,11 +12,11 @@ import NovoProduto from './components/pages/NovoProduto';
 
 function App() {
 
-  const [cardProduto, setCardProduto] = useState([]);
-  const [valorProduto, setValorProduto] = useState([]);
+  const [enviaProdutos, setEnviaProdutos] = useState([]);
+  const [produtoClicado, setProdutoClicado] = useState([]);
 
   useEffect(() => {
-    fetch(`https://my-json-server.typicode.com/AllanRibeiroSantos/Projeto-AluraGeek-React/produtos`,
+    fetch('https://my-json-server.typicode.com/AllanRibeiroSantos/Projeto-AluraGeek-React/produtos',
       {
         method: 'GET',
         headers: {
@@ -24,27 +24,13 @@ function App() {
         }
       })
       .then(resposta => resposta.json())
-      .then(data => setValorProduto(data))
+      .then(data => setEnviaProdutos(data))
       .catch(erro => console.log(erro))
   }, [])
 
+  // Dados (id) recebido do botão Ver Produto
   function idProdutoClicado(id_produto) {
-    setCardProduto(id_produto);
-  }
-
-  function enviaProdutos() {
-    valorProduto.map(itens => {
-      const produto = [
-        {
-          id: itens.id,
-          nome: itens.nome,
-          valor: itens.valor,
-          imagem: itens.imagem,
-          categoria: itens.categoria,
-          descricao: itens.descricao
-        }
-      ]
-    })
+    setProdutoClicado(id_produto);
   }
 
   return (
@@ -55,7 +41,12 @@ function App() {
           <Routes>
             <Route exact path='/' element={<Home idProdutoClicado={idProdutoClicado} />} />
             <Route path='/login' element={<Login />} />
-            <Route path='/produto/:id' element={<Produto idProdutoEnviado={cardProduto} />} />
+            <Route path='/produto/:id' element=
+              {
+                <Produto
+                  idProdutoEnviado={produtoClicado}
+                  produtosEnviados={enviaProdutos} />
+              } />
             <Route path='/todosprodutos' element={<TodosProdutos />} />
             <Route path='/novoproduto' element={<NovoProduto />} />
           </Routes>

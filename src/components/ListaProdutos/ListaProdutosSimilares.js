@@ -22,6 +22,9 @@ export default function ListaProdutosPaginaInicial({ nomeCategoria, categoriaPro
       .catch(erro => console.log(erro))
   }, [])
 
+  const itensMesmaCategoria = valorProduto.filter(itens => itens.categoria == categoriaProduto);
+
+
   return (
     <section className={styles.section_container}>
       <div className={styles.main_categoria_container}>
@@ -32,7 +35,7 @@ export default function ListaProdutosPaginaInicial({ nomeCategoria, categoriaPro
       </div>
 
       <div className={styles.section_card_container}>
-        {valorProduto.map(card => (
+        {itensMesmaCategoria.map(card => (
 
           // Se o Card for igual a categoria, então adiciona o card
 

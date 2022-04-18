@@ -10,7 +10,11 @@
   margin: auto;
 }
 
-.produto_image {
+.produto_container_image {
+  /* O ideal é fazer sem largura e altura para que ele se molde no tamanho certo*/
+  /* width: 560px;
+  height: 403px;
+  overflow: hidden; */
   margin-right: 1rem;
 }
 
