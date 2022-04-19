@@ -82,6 +82,21 @@
       "descricao" : "Voluptas voluptatum quibusdam similique, class debitis alias maecenas eveniet ridiculus, facilis fusce! Ullam conubia? Sociis, minima malesuada habitasse distinctio sequi aliqua malesuada. Quisque deleniti proin expedita, aliquid litora. Iste recusandae? Commodo, quia ridiculus doloribus vero dictum? Penatibus donec placeat faucibus, dolorum do. Animi porta anim magnam"
     }
   ],
+  
+  "categorias" : [
+    {
+      "id" : 1,
+      "nome" : "Star Wars"
+    },
+    {
+      "id" : 2,
+      "nome" : "Consoles"
+    },
+    {
+      "id" : 3,
+      "nome" : "Diversos"
+    }
+  ],
 
   "login" : [
     {
