@@ -3,24 +3,10 @@ import styles from './TodosProdutos.module.css';
 import ButtonAzul from '../buttons/ButtonAzul';
 import CardimageTodosProdutos from '../ListaProdutos/CardimageTodosProdutos';
 import { Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
 
-export default function TodosProdutos() {
+export default function TodosProdutos({ enviaProdutos }) {
 
-  const [valorProduto, setValorProduto] = useState([]);
-
-  useEffect(() => {
-    fetch('https://my-json-server.typicode.com/AllanRibeiroSantos/Projeto-AluraGeek-React/produtos',
-      {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      })
-      .then(resposta => resposta.json())
-      .then(data => setValorProduto(data))
-      .catch(erro => console.log(erro))
-  }, [])
+  // Dados da API vindo diretamente do App
 
   return (
     <>
@@ -32,7 +18,7 @@ export default function TodosProdutos() {
           </Link>
         </div>
         <div className={styles.todosProdutos_container}>
-          {valorProduto.map(card => (
+          {enviaProdutos.map(card => (
             <div>
               <CardimageTodosProdutos
                 key={card.id}
@@ -43,7 +29,7 @@ export default function TodosProdutos() {
               />
             </div>
           ))}
-          {valorProduto.map(card => (
+          {enviaProdutos.map(card => (
             <div>
               <CardimageTodosProdutos
                 key={card.id}

@@ -33,22 +33,53 @@ function App() {
     setProdutoClicado(id_produto);
   }
 
+  const [enviaCategorias, setEnviaCategorias] = useState([]);
+
+  useEffect(() => {
+    fetch('https://my-json-server.typicode.com/AllanRibeiroSantos/Projeto-AluraGeek-React/categorias',
+      {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      .then(resposta => resposta.json())
+      .then(data => setEnviaCategorias(data))
+      .catch(erro => console.log(erro))
+  }, [])
+
   return (
     <>
       <Router>
         <Header />
         <main>
           <Routes>
-            <Route exact path='/' element={<Home idProdutoClicado={idProdutoClicado} />} />
-            <Route path='/login' element={<Login />} />
+            <Route exact path='/' element=
+              {
+                <Home
+                  idProdutoClicado={idProdutoClicado}
+                  enviaProdutos={enviaProdutos}
+                  enviaCategorias={enviaCategorias} />
+              } />
+            <Route path='/login' element=
+              {
+                <Login />
+              } />
             <Route path='/produto/:id' element=
               {
                 <Produto
                   idProdutoEnviado={produtoClicado}
-                  produtosEnviados={enviaProdutos} />
+                  produtosEnviados={enviaProdutos}
+                  enviaProdutos={enviaProdutos} />
               } />
-            <Route path='/todosprodutos' element={<TodosProdutos />} />
-            <Route path='/novoproduto' element={<NovoProduto />} />
+            <Route path='/todosprodutos' element=
+              {
+                <TodosProdutos enviaProdutos={enviaProdutos} />
+              } />
+            <Route path='/novoproduto' element=
+              {
+                <NovoProduto />
+              } />
           </Routes>
         </main>
         <Footer />

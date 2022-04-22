@@ -3,27 +3,10 @@ import Cardimage from './Cardimage';
 import styles from './ListaProdutosPaginaInicial.module.css';
 import { AiOutlineArrowRight } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
 
-export default function ListaProdutosPaginaInicial({ nomeCategoria, categoriaProduto, idProdutoClicado }) {
+export default function ListaProdutosSimilares({ nomeCategoria, categoriaProduto, idProdutoClicado, enviaProdutos }) {
 
-  const [valorProduto, setValorProduto] = useState([]);
-
-  useEffect(() => {
-    fetch('https://my-json-server.typicode.com/AllanRibeiroSantos/Projeto-AluraGeek-React/produtos',
-      {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      })
-      .then(resposta => resposta.json())
-      .then(data => setValorProduto(data))
-      .catch(erro => console.log(erro))
-  }, [])
-
-  const itensMesmaCategoria = valorProduto.filter(itens => itens.categoria == categoriaProduto);
-
+  const itensMesmaCategoria = enviaProdutos.filter(itens => itens.categoria == categoriaProduto);
 
   return (
     <section className={styles.section_container}>
@@ -36,9 +19,6 @@ export default function ListaProdutosPaginaInicial({ nomeCategoria, categoriaPro
 
       <div className={styles.section_card_container}>
         {itensMesmaCategoria.map(card => (
-
-          // Se o Card for igual a categoria, então adiciona o card
-
           <Cardimage
             key={card.id}
             nome_produto={card.nome}

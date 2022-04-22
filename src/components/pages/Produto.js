@@ -2,7 +2,7 @@ import { React } from 'react';
 import styles from './Produto.module.css';
 import ListaProdutosSimilares from '../ListaProdutos/ListaProdutosSimilares';
 
-export default function Produto({ idProdutoEnviado, produtosEnviados }) {
+export default function Produto({ idProdutoEnviado, produtosEnviados, enviaProdutos }) {
   // Lembrando que, da forma em que eu programei, a página SÓ IRÁ CARREGAR caso for clicado no botão Ver Produto, inclusive, caso você dê um F5, a página também não recarregará
   
   const produto = produtosEnviados.filter(itens => itens.id == idProdutoEnviado);
@@ -23,7 +23,8 @@ export default function Produto({ idProdutoEnviado, produtosEnviados }) {
         </div>
         <ListaProdutosSimilares 
         nomeCategoria='Produtos similares' 
-        categoriaProduto={produto.categoria} />
+        categoriaProduto={produto.categoria}
+        enviaProdutos={enviaProdutos} />
       </section>
     ))}
       

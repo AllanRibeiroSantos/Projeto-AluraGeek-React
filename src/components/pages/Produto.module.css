@@ -4,6 +4,7 @@
 
 .produto_container {
   display: flex;
+  /* flex-wrap: wrap; */
   align-items: center;
   width: var(--largura_conteudo1);
   padding-top: 4rem;
@@ -11,16 +12,23 @@
 }
 
 .produto_container_image {
-  /* O ideal é fazer sem largura e altura para que ele se molde no tamanho certo*/
-  /* width: 560px;
-  height: 403px;
-  overflow: hidden; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 560px;
+  min-height: 403px;
+  max-width: 560px;
+  max-height: 403px;
   margin-right: 1rem;
+  background-color: #FFF;
+  border: 1px solid var(--cor_cinza_claro);
+  overflow: hidden;
 }
 
 .produto_container_descricao {
   display: flex;
   flex-direction: column;
+  min-width: 440px;
 }
 
 .produto_container_descricao h2 {
@@ -48,9 +56,18 @@
     min-height: fit-content;
   }
   
-  .produto_image {
+  .produto_container_image {
+    min-width: 254px;
+    min-height: 0;
+    max-height: 200px;
     width: 254px;
     height: 157px;
+    overflow: hidden;
+  }
+
+  .produto_image {
+    max-width: 254px;
+    /* max-height: 157px; */
   }
 
   .produto_container_descricao h2 {
@@ -79,14 +96,16 @@
   }
 
   .produto_container_image {
+    min-width: 0;
+    min-height: 0;
     max-height: 450px;
     overflow: hidden;
+    margin: 0;
   }
 
   .produto_image {
     width: 100vw;
     height: auto;
-    margin: 0;
   }
 
   .produto_container_descricao h2 {
