@@ -27,7 +27,6 @@ export default function Produto({ idProdutoEnviado, produtosEnviados, enviaProdu
         enviaProdutos={enviaProdutos} />
       </section>
     ))}
-      
     </>
   )
 }
