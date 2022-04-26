@@ -5,7 +5,6 @@ import InputPesquisa from '../form/InputPesquisa';
 import styles from './Header.module.css';
 import AluraLogo from './AluraLogo';
 import { BiSearchAlt2 } from 'react-icons/bi';
-import Login from '../pages/Login';
 
 export default function Header() {
   return (
@@ -19,6 +18,5 @@ export default function Header() {
         <span className={styles.lupa_icon_smart}><BiSearchAlt2 /></span>
       </header>
     </>
-
   )
 }

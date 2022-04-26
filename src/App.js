@@ -9,6 +9,7 @@ import Home from './components/pages/Home';
 import Produto from './components/pages/Produto';
 import TodosProdutos from './components/pages/TodosProdutos';
 import NovoProduto from './components/pages/NovoProduto';
+import ListaPesquisa from './components/pages/ListaPesquisa';
 
 function App() {
 
@@ -68,17 +69,24 @@ function App() {
             <Route path='/produto/:id' element=
               {
                 <Produto
+                  idProdutoClicado={idProdutoClicado}
                   idProdutoEnviado={produtoClicado}
                   produtosEnviados={enviaProdutos}
                   enviaProdutos={enviaProdutos} />
               } />
             <Route path='/todosprodutos' element=
               {
-                <TodosProdutos enviaProdutos={enviaProdutos} />
+                <TodosProdutos 
+                enviaProdutos={enviaProdutos}
+                idProdutoClicado={idProdutoClicado} />
               } />
             <Route path='/novoproduto' element=
               {
                 <NovoProduto />
+              } />
+            <Route path='/listapesquisa' element=
+              {
+                <ListaPesquisa />
               } />
           </Routes>
         </main>

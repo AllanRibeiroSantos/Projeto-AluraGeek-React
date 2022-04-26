@@ -4,7 +4,7 @@ import styles from './CardimageTodosProdutos.module.css';
 import { FaTrash } from 'react-icons/fa';
 import { RiPencilFill } from 'react-icons/ri';
 
-export default function CardimageTodosProdutos({ cardsrc, nome_produto, preco_produto, to }) {
+export default function CardimageTodosProdutos({ cardsrc, nome_produto, preco_produto, to, idProdutoClicado, id_key  }) {
   return (
     <div className={styles.cardtodosprodutos_container}>
       <img className={styles.cardtodosprodutos_listaProdutos_cardimage}
@@ -18,7 +18,7 @@ export default function CardimageTodosProdutos({ cardsrc, nome_produto, preco_pr
       <p className={styles.cardtodosprodutos_nome_produto}>{nome_produto}</p>
       <p className={styles.cardtodosprodutos_preco_produto} >{preco_produto}</p>
       <Link to={to} style={{ textDecoration: 'none' }} >
-        <p className={styles.cardtodosprodutos_ver_produto}>Ver Produto</p>
+        <p className={styles.cardtodosprodutos_ver_produto} onClick={() => idProdutoClicado(id_key)}>Ver Produto</p>
       </Link>
     </div>
   )

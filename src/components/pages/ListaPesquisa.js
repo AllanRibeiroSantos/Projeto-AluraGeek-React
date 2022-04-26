@@ -4,9 +4,12 @@ import ButtonAzul from '../buttons/ButtonAzul';
 import CardimageTodosProdutos from '../ListaProdutos/CardimageTodosProdutos';
 import { Link } from 'react-router-dom';
 
-export default function TodosProdutos({ enviaProdutos, idProdutoClicado }) {
+export default function ListaPesquisa({ enviaProdutos, itemPesquisado }) {
 
   // Dados da API vindo diretamente do App
+  //Quando eu buscar, o dado escrito (onsubmit) deve ser repassado por props para o componente ListaPesquisa, e ele será utilizado para fazer o filter
+
+  // const pesquisa = enviaProdutos.filter(() => enviaProdutos)
 
   return (
     <>
@@ -24,23 +27,8 @@ export default function TodosProdutos({ enviaProdutos, idProdutoClicado }) {
                 key={card.id}
                 nome_produto={card.nome}
                 preco_produto={card.valor}
-                to={'/produto/' + card.id} // Redirecionamento
+                to='/produto' // Redirecionamento
                 cardsrc={card.imagem} //URL da imagem
-                idProdutoClicado={idProdutoClicado}
-                id_key={card.id}
-              />
-            </div>
-          ))}
-          {enviaProdutos.map(card => (
-            <div>
-              <CardimageTodosProdutos
-                key={card.id}
-                nome_produto={card.nome}
-                preco_produto={card.valor}
-                to={'/produto/' + card.id} // Redirecionamento
-                cardsrc={card.imagem} //URL da imagem
-                idProdutoClicado={idProdutoClicado}
-                id_key={card.id}
               />
             </div>
           ))}
