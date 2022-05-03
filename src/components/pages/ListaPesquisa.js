@@ -1,16 +1,17 @@
-import React from 'react';
+import { React } from 'react';
 import styles from './TodosProdutos.module.css';
 import ButtonAzul from '../buttons/ButtonAzul';
 import CardimageTodosProdutos from '../ListaProdutos/CardimageTodosProdutos';
 import { Link } from 'react-router-dom';
 
-export default function ListaPesquisa({ enviaProdutos, itemPesquisado }) {
+export default function ListaPesquisa({ enviaProdutos, enviaPesquisa }) {
 
-  // Dados da API vindo diretamente do App
-  //Quando eu buscar, o dado escrito (onsubmit) deve ser repassado por props para o componente ListaPesquisa, e ele será utilizado para fazer o filter
+  // Os valores da pesquisa que vem de outras páginas ainda não estão sendo passadas para o filter, porém pesquisas feitas dentro da página ListaPesquisa já estão funcionando. NOTA: Ainda devo tentar fazer com que os valores da pesquisa fiquem em letra minúscula.
 
-  // const pesquisa = enviaProdutos.filter(() => enviaProdutos)
+  // O grande problema aqui foi fazer um useState aqui e no componente App, fazendo que o react re-renderizasse infinitamente.
 
+  const pesquisa = enviaProdutos.filter(item => item.nome.startsWith(enviaPesquisa))
+  // Deveria ficar: filter(item => item.nome.toLowerCase().includes(itemPesquisado.toLowerCase()))
   return (
     <>
       <section className={styles.todosProdutos_section_container}>
@@ -21,7 +22,7 @@ export default function ListaPesquisa({ enviaProdutos, itemPesquisado }) {
           </Link>
         </div>
         <div className={styles.todosProdutos_container}>
-          {enviaProdutos.map(card => (
+          {pesquisa.map(card => (
             <div>
               <CardimageTodosProdutos
                 key={card.id}

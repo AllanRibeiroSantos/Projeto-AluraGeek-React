@@ -6,6 +6,13 @@ import { BsGithub, BsLinkedin, BsYoutube } from 'react-icons/bs';
 import AluraLogoFooter from './AluraLogoFooter';
 
 export default function Footer() {
+
+  function pegaInput(evento) {
+    evento.preventDefault();
+    const valorInput = evento.target.value;
+    console.log(valorInput);
+  }
+
   return (
     <footer>
       <div className={styles.footer_area}>

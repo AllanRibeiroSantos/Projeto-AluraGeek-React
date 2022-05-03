@@ -49,10 +49,32 @@ function App() {
       .catch(erro => console.log(erro))
   }, [])
 
+  const [enviaPesquisa, setEnviaPesquisa] = useState([]);
+
+  // Dados recebidos pelo input do campo de pesquisa do Header
+  function pesquisa(event) {
+    event.preventDefault();
+    const palavraPesquisada = event.target.value;
+
+    if (event.code == 'Enter' && palavraPesquisada) {
+      setEnviaPesquisa(palavraPesquisada);
+
+      if (window.location.pathname == '/listapesquisa') {
+        // Executa um bloco de funções caso já estiver na página
+        console.log('Estamos na pagina da lista')
+
+      } else {
+        // É redirecionado para a página de pesquisa
+        window.location.href = '/listapesquisa';
+      }
+    }
+  }
+
   return (
     <>
+
       <Router>
-        <Header />
+        <Header recebePesquisa={pesquisa} />
         <main>
           <Routes>
             <Route exact path='/' element=
@@ -76,9 +98,9 @@ function App() {
               } />
             <Route path='/todosprodutos' element=
               {
-                <TodosProdutos 
-                enviaProdutos={enviaProdutos}
-                idProdutoClicado={idProdutoClicado} />
+                <TodosProdutos
+                  enviaProdutos={enviaProdutos}
+                  idProdutoClicado={idProdutoClicado} />
               } />
             <Route path='/novoproduto' element=
               {
@@ -86,7 +108,9 @@ function App() {
               } />
             <Route path='/listapesquisa' element=
               {
-                <ListaPesquisa />
+                <ListaPesquisa
+                  enviaPesquisa={enviaPesquisa}
+                  enviaProdutos={enviaProdutos} />
               } />
           </Routes>
         </main>
