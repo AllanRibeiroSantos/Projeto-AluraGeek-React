@@ -5,12 +5,42 @@ import styles from './Footer.module.css';
 import { BsGithub, BsLinkedin, BsYoutube } from 'react-icons/bs';
 import AluraLogoFooter from './AluraLogoFooter';
 
-export default function Footer() {
+export default function Footer({ enviaMensagens }) {
+
+  /*
+  
+  Depois do submit deve verificar se: 
+   
+  - O nome tem pelo menos 4 letras, não pode conter números;
+  - Se o texto tem ao menos 10 caracteres;
+
+  Depois dessa verificação, as informações serão guardadas em um .json que serão apresentadas na página de mensagens
+
+  */
 
   function pegaInput(evento) {
     evento.preventDefault();
-    const valorInput = evento.target.value;
-    console.log(valorInput);
+    const valorInput = document.querySelector('[data-getinput]').value;
+    const valorTextArea = document.querySelector('[data-gettextarea]').value;
+
+    // Solução fácil para o id, porém se a mensagem que for deletada não for a última irá dar conflito de id
+    const ultimoId = enviaMensagens.length + 1;
+
+    // Envia mensagens para a API
+    fetch('http://localhost:3001/mensagens',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          "id" : ultimoId,
+          "nome": valorInput,
+          "mensagem": valorTextArea
+        })
+      })
+      .then(() => console.log('Mensagem enviada com sucesso'))
+      .catch(erro => console.log(erro))
   }
 
   return (
@@ -28,10 +58,10 @@ export default function Footer() {
             <li>Quero ser franqueado</li>
             <li>Anuncie aqui</li>
           </ul>
-          <form className={styles.footer_form}>
+          <form className={styles.footer_form} onSubmit={pegaInput}>
             <p className={styles.footer_paragr}>Fale conosco</p>
             <Input type='text' placeholder='Nome' />
-            <textarea placeholder='Escreva sua mensagem' />
+            <textarea placeholder='Escreva sua mensagem' data-gettextarea />
             <ButtonAzul text='Enviar mensagem' />
           </form>
         </div>

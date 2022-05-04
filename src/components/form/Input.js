@@ -5,10 +5,12 @@ export default function Input({ type, name, placeholder }) {
   return (
     <fieldset className={styles.form_container}>
       <input className={styles.form_input}
-        type={type} 
+        type={type}
         name={name}
         id={name}
-        placeholder={placeholder} />
+        placeholder={placeholder}
+        data-getinput
+      />
     </fieldset>
   )
 }
