@@ -1,46 +1,58 @@
-import React from 'react';
+import { React, useState } from 'react';
 import ButtonAzul from '../buttons/ButtonAzul';
 import Input from '../form/Input';
 import styles from './Footer.module.css';
 import { BsGithub, BsLinkedin, BsYoutube } from 'react-icons/bs';
 import AluraLogoFooter from './AluraLogoFooter';
 
-export default function Footer({ enviaMensagens }) {
+export default function Footer() {
 
-  /*
-  
-  Depois do submit deve verificar se: 
-   
-  - O nome tem pelo menos 4 letras, não pode conter números;
-  - Se o texto tem ao menos 10 caracteres;
-
-  Depois dessa verificação, as informações serão guardadas em um .json que serão apresentadas na página de mensagens
-
-  */
+  const [valorInput, setValorInput] = useState('');
+  const [valorTextArea, setValorTextArea] = useState('');
 
   function pegaInput(evento) {
     evento.preventDefault();
-    const valorInput = document.querySelector('[data-getinput]').value;
-    const valorTextArea = document.querySelector('[data-gettextarea]').value;
 
-    // Solução fácil para o id, porém se a mensagem que for deletada não for a última irá dar conflito de id
-    const ultimoId = enviaMensagens.length + 1;
+    if (valorInput && valorTextArea) {
+      // Todas as letras acentuadas ou não; não pode numeros; e deve ter mais que 3 caracteres.
+      const objRegexInput = /^[a-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÒÖÚÇÑ ]{3,}$/gi;
+      const inputMatch = objRegexInput.test(valorInput);
 
-    // Envia mensagens para a API
-    fetch('http://localhost:3001/mensagens',
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          "id" : ultimoId,
-          "nome": valorInput,
-          "mensagem": valorTextArea
-        })
-      })
-      .then(() => console.log('Mensagem enviada com sucesso'))
-      .catch(erro => console.log(erro))
+      // Minimo de 10 caracteres quaisquer.
+      const objRegexTextArea = /^.{10,}$/gi;
+      const textAreaMatch = objRegexTextArea.test(valorTextArea);
+
+      /*
+        Fazer nesta área mesmo:
+        
+        Se o formulário não preencher os requisitos a seguir, enviar mensagem de erro:
+        - Caso o nome contenha caracteres que não sejam apenas letras;
+        - Caso o nome seja menor que 3 caracteres;
+        - Caso a mensagem for menor que 10 caracteres;
+      */
+
+
+      if (inputMatch && textAreaMatch) {
+        // Solução fácil para o id, porém se a mensagem que for deletada não for a última irá dar conflito de id
+        // const ultimoId = enviaMensagens.length + 1;
+
+        // Envia mensagens para a API
+        // fetch('http://localhost:3001/mensagens',
+        //   {
+        //     method: 'POST',
+        //     headers: {
+        //       'Content-Type': 'application/json'
+        //     },
+        //     body: JSON.stringify({
+        //       "id": ultimoId,
+        //       "nome": valorInput,
+        //       "mensagem": valorTextArea
+        //     })
+        //   })
+        //   .then(() => console.log('Mensagem enviada com sucesso'))
+        //   .catch(erro => console.log(erro))
+      }
+    }
   }
 
   return (
@@ -60,8 +72,14 @@ export default function Footer({ enviaMensagens }) {
           </ul>
           <form className={styles.footer_form} onSubmit={pegaInput}>
             <p className={styles.footer_paragr}>Fale conosco</p>
-            <Input type='text' placeholder='Nome' />
-            <textarea placeholder='Escreva sua mensagem' data-gettextarea />
+            <Input
+              type='text'
+              placeholder='Nome'
+              setValorInput={setValorInput} />
+            <textarea
+              placeholder='Escreva sua mensagem'
+              onChange={evento => setValorTextArea(evento.target.value)}
+            />
             <ButtonAzul text='Enviar mensagem' />
           </form>
         </div>

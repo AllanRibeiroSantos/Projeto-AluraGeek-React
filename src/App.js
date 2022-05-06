@@ -70,21 +70,6 @@ function App() {
     }
   }
 
-  const [enviaMensagens, setEnviaMensagens] = useState([])
-
-  useEffect(() => {
-    fetch('http://localhost:3001/mensagens',
-      {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      })
-      .then(resposta => resposta.json())
-      .then(data => setEnviaMensagens(data))
-      .catch(erro => console.log(erro))
-  }, [])
-
   return (
     <>
 
@@ -129,9 +114,7 @@ function App() {
               } />
           </Routes>
         </main>
-        <Footer
-          enviaMensagens={enviaMensagens}
-        />
+        <Footer />
       </Router>
     </>
   );
