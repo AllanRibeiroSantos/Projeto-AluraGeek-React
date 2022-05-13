@@ -22,5 +22,29 @@
   display: grid;
   row-gap: 2rem;
   column-gap: 1.5rem;
-  grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  /* Faz com que tenha o mesmo efeito do flex-wrap e tenha o minimo de 340px */
+}
+
+@media screen and (max-width: 1024px) {
+  .adm_container {
+    width: var(--largura_conteudo2);
+  }
+
+  .adm_container h2 {
+    font-size: var(--tamanho_fonte16);
+  }
+  
+  .adm_container h1 {
+    font-size: var(--tamanho_fonte22);
+    font-weight: bold;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .adm_container {
+    width: var(--largura_conteudo3);
+    padding: 1rem 0;
+  }
 }

@@ -5,7 +5,7 @@ import styles from './PaginaADM.module.css'
 
 export default function PaginaADM() {
 
-  const nomeUsuario = 'Fulano de Tal';
+  const nomeUsuario = 'Nome do Administrador';
 
   return (
     <>
@@ -24,7 +24,7 @@ export default function PaginaADM() {
               <AdmCard titulo='Mensagens de usuários' />
             </Link>
             <Link to='/' style={{ textDecoration: 'none', color: 'black' }} >
-              <AdmCard titulo='Administração de contas de usuários' />
+              <AdmCard titulo='Admin. de usuários' />
             </Link>
           </div>
         </div>
