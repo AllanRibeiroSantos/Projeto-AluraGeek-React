@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './TodosProdutos.module.css';
-import ButtonAzul from '../buttons/ButtonAzul';
-import CardimageTodosProdutos from '../ListaProdutos/CardimageTodosProdutos';
+import ButtonAzul from '../../buttons/ButtonAzul';
+import CardimageTodosProdutos from '../../ListaProdutos/CardimageTodosProdutos';
 import { Link } from 'react-router-dom';
 
 export default function TodosProdutos({ enviaProdutos, idProdutoClicado }) {

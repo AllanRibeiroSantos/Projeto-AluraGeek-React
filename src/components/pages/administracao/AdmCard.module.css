@@ -1,0 +1,14 @@
+.adm_card {
+  /* width: 500px; */
+  border: 1px solid var(--cor_cinza_claro);
+  border-radius: 1rem;
+  padding: 2rem;
+}
+
+.adm_card h2 {
+  font-size: var(--tamanho_fonte22);
+}
+
+.adm_card p {
+  margin-top: 1rem;
+}

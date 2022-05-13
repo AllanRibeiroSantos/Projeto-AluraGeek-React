@@ -1,0 +1,26 @@
+.adm_section_container {
+  background-color: var(--fundo_cinza);
+}
+
+.adm_container {
+  width: var(--largura_conteudo1);
+  margin: auto;
+  padding: 4rem 0;
+}
+
+.adm_container h2 {
+  font-size: var(--tamanho_fonte22);
+  text-align: center;
+}
+
+.adm_container h1 {
+  font-size: var(--tamanho_fonteh2);
+  margin: 1rem 0;
+}
+
+.adm_card_container {
+  display: grid;
+  row-gap: 2rem;
+  column-gap: 1.5rem;
+  grid-template-columns: repeat(3, 1fr);
+}

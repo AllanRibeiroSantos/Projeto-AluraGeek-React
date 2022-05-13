@@ -7,9 +7,10 @@ import Footer from './components/layout/Footer';
 import Login from './components/pages/Login';
 import Home from './components/pages/Home';
 import Produto from './components/pages/Produto';
-import TodosProdutos from './components/pages/TodosProdutos';
+import TodosProdutos from './components/pages/administracao/TodosProdutos';
 import NovoProduto from './components/pages/NovoProduto';
 import ListaPesquisa from './components/pages/ListaPesquisa';
+import PaginaADM from './components/pages/administracao/PaginaADM';
 
 function App() {
 
@@ -125,6 +126,10 @@ function App() {
                 <ListaPesquisa
                   enviaPesquisa={enviaPesquisa}
                   enviaProdutos={enviaProdutos} />
+              } />
+              <Route path='/administracao' element=
+              {
+                <PaginaADM />
               } />
           </Routes>
         </main>
