@@ -5,9 +5,8 @@ import styles from './Footer.module.css';
 import { BsGithub, BsLinkedin, BsYoutube } from 'react-icons/bs';
 import AluraLogoFooter from './AluraLogoFooter';
 
-export default function Footer({ enviaMensagens }) {
+export default function Footer({ enviaMensagens, setValorInput, valorInput }) {
 
-  const [valorInput, setValorInput] = useState('');
   const [valorTextArea, setValorTextArea] = useState('');
   const [mensagemAlerta, setMensagemAlerta] = useState(false);
 

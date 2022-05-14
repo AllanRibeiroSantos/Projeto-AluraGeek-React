@@ -86,6 +86,25 @@ function App() {
       .catch(erro => console.log(erro))
   }, [])
 
+  // Envia valores do input (onde o componente foi posto)
+  const [valorInput, setValorInput] = useState('');
+  const [valorInputEmail, setValorInputEmail] = useState('');
+  const [valorInputSenha, setValorInputSenha] = useState('');
+  const [enviaLogin, setEnviaLogin] = useState([]);
+
+  useEffect(() => {
+    fetch('https://my-json-server.typicode.com/AllanRibeiroSantos/Projeto-AluraGeek-React/login',
+      {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      .then(resposta => resposta.json())
+      .then(data => setEnviaLogin(data))
+      .catch(erro => console.log(erro))
+  }, [])
+
   return (
     <>
       <Router>
@@ -101,7 +120,12 @@ function App() {
               } />
             <Route path='/login' element=
               {
-                <Login />
+                <Login
+                  valorInputEmail={valorInputEmail}
+                  setValorInputEmail={setValorInputEmail}
+                  valorInputSenha={valorInputSenha}
+                  setValorInputSenha={setValorInputSenha}
+                  enviaLogin={enviaLogin} />
               } />
             <Route path='/produto/:id' element=
               {
@@ -127,13 +151,16 @@ function App() {
                   enviaPesquisa={enviaPesquisa}
                   enviaProdutos={enviaProdutos} />
               } />
-              <Route path='/administracao' element=
+            <Route path='/administracao' element=
               {
                 <PaginaADM />
               } />
           </Routes>
         </main>
-        <Footer enviaMensagens={enviaMensagens} />
+        <Footer
+          enviaMensagens={enviaMensagens}
+          setValorInput={setValorInput}
+          valorInput={valorInput} />
       </Router>
     </>
   );
