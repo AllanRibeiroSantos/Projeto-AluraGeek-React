@@ -91,6 +91,7 @@ function App() {
   const [valorInputEmail, setValorInputEmail] = useState('');
   const [valorInputSenha, setValorInputSenha] = useState('');
   const [enviaLogin, setEnviaLogin] = useState([]);
+  const [enviaNomeLogin, setEnviaNomeLogin] = useState('');
 
   useEffect(() => {
     fetch('https://my-json-server.typicode.com/AllanRibeiroSantos/Projeto-AluraGeek-React/login',
@@ -125,7 +126,8 @@ function App() {
                   setValorInputEmail={setValorInputEmail}
                   valorInputSenha={valorInputSenha}
                   setValorInputSenha={setValorInputSenha}
-                  enviaLogin={enviaLogin} />
+                  enviaLogin={enviaLogin}
+                  setEnviaNomeLogin={setEnviaNomeLogin} />
               } />
             <Route path='/produto/:id' element=
               {
@@ -153,7 +155,8 @@ function App() {
               } />
             <Route path='/administracao' element=
               {
-                <PaginaADM />
+                <PaginaADM
+                  enviaNomeLogin={enviaNomeLogin} />
               } />
           </Routes>
         </main>

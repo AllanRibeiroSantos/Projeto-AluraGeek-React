@@ -1,27 +1,35 @@
-import React from 'react';
+import  { React, useState } from 'react';
 import ButtonAzul from '../buttons/ButtonAzul';
 import InputEmail from '../form/InputEmail';
 import InputSenha from '../form/InputSenha';
 import styles from './Login.module.css'
 
-export default function Login({ enviaLogin, valorInputEmail, setValorInputEmail, valorInputSenha, setValorInputSenha }) {
+export default function Login({ enviaLogin, valorInputEmail, setValorInputEmail, valorInputSenha, setValorInputSenha, setEnviaNomeLogin }) {
 
   // Email e senha para teste: Email: email@algo.com.br, Senha: 123456
+
+  const [enviaMensagemAlerta, setEnviaMensagemAlerta] = useState(false);
 
   function onSubmitLogin(evento) {
     evento.preventDefault();
 
     const loginFiltrado = enviaLogin.filter(lista => lista.email.includes(valorInputEmail));
     if (loginFiltrado <= 0) {
-      console.log('Login não encontrado')
+      console.log('Email não cadastrado');
+      console.log(enviaMensagemAlerta);
+      setEnviaMensagemAlerta(true);
     }
 
     loginFiltrado.map(login => {
       if (valorInputEmail == login.email && valorInputSenha == login.senha) {
-        window.location.href = '/administracao'
-        console.log('Login efetuado com sucesso')
+        setEnviaMensagemAlerta(false);
+        setEnviaNomeLogin(login.nome_usuario);
+        window.location.href = '/administracao';
+        console.log('Login efetuado com sucesso');
       } else {
-        console.log('Email ou senha errada')
+        console.log('Email ou senha invalidos');
+        console.log(enviaMensagemAlerta);
+        setEnviaMensagemAlerta(true);
       }
     })
   }
@@ -35,7 +43,9 @@ export default function Login({ enviaLogin, valorInputEmail, setValorInputEmail,
         <div>
           <InputEmail
             placeholder='Escreva seu Email'
-            setValorInputEmail={setValorInputEmail} />
+            setValorInputEmail={setValorInputEmail}
+            enviaMensagemAlerta={enviaMensagemAlerta}
+            mensagemAlerta='Email ou senha invalidos' />
         </div>
         <div>
           <InputSenha

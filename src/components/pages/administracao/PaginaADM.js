@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom';
 import AdmCard from './AdmCard';
 import styles from './PaginaADM.module.css'
 
-export default function PaginaADM() {
+export default function PaginaADM({ enviaNomeLogin }) {
 
+  // Não estou conseguindo receber o enviaNomeLogin (talvez por ser assincrono)
   const nomeUsuario = 'Nome do Administrador';
 
   return (
