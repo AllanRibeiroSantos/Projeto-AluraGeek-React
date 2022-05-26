@@ -1,8 +1,6 @@
 import { React } from 'react';
 import styles from './administracao/TodosProdutos.module.css';
-import ButtonAzul from '../buttons/ButtonAzul';
-import CardimageTodosProdutos from '../ListaProdutos/CardimageTodosProdutos';
-import { Link } from 'react-router-dom';
+import Cardimage from '../ListaProdutos/Cardimage';
 
 export default function ListaPesquisa({ enviaProdutos, enviaPesquisa }) {
 
@@ -16,15 +14,12 @@ export default function ListaPesquisa({ enviaProdutos, enviaPesquisa }) {
     <>
       <section className={styles.todosProdutos_section_container}>
         <div className={styles.todosProdutos_categoria}>
-          <h2>Todos os produtos</h2>
-          <Link to='/novoproduto' style={{ textDecoration: 'none' }}>
-            <ButtonAzul text='Adicionar produto' />
-          </Link>
+          <h2>Resultados</h2>
         </div>
         <div className={styles.todosProdutos_container}>
           {pesquisa.map(card => (
             <div>
-              <CardimageTodosProdutos
+              <Cardimage
                 key={card.id}
                 nome_produto={card.nome}
                 preco_produto={card.valor}

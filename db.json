@@ -80,6 +80,15 @@
       "img_large": "https://user-images.githubusercontent.com/61354355/163884352-8b413055-9250-4782-a7f6-ee184ec1a8ad.jpeg",
       "categoria": "Diversos",
       "descricao": "Voluptas voluptatum quibusdam similique, class debitis alias maecenas eveniet ridiculus, facilis fusce! Ullam conubia? Sociis, minima malesuada habitasse distinctio sequi aliqua malesuada. Quisque deleniti proin expedita, aliquid litora. Iste recusandae? Commodo, quia ridiculus doloribus vero dictum? Penatibus donec placeat faucibus, dolorum do. Animi porta anim magnam"
+    },
+    {
+      "id": 10,
+      "nome": "Sata",
+      "valor": "R$ 50,00",
+      "imagem": "link da imagem",
+      "img_large": "link da imagem larga",
+      "categoria": "Adicionar uma categoria",
+      "descricao": "Produto qualquer adicionado dinamicamente"
     }
   ],
   "categorias": [

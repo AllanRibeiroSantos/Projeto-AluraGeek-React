@@ -16,6 +16,7 @@ export default function ListaProdutosPaginaInicial({ categoriaProduto, idProduto
 
       <div className={styles.section_card_container}>
         {enviaProdutos.map(card => (
+          categoriaProduto == card.categoria &&
           <Cardimage
             key={card.id}
             nome_produto={card.nome}

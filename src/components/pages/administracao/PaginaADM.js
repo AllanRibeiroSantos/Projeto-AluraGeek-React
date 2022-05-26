@@ -18,7 +18,7 @@ export default function PaginaADM({ enviaNomeLogin }) {
             <Link to='/' style={{ textDecoration: 'none', color: 'black' }} >
               <AdmCard titulo='Sua conta' />
             </Link>
-            <Link to='/todosprodutos' style={{ textDecoration: 'none', color: 'black' }} >
+            <Link to='/todosprodutosedicao' style={{ textDecoration: 'none', color: 'black' }} >
               <AdmCard titulo='Área de produtos' />
             </Link>
             <Link to='/' style={{ textDecoration: 'none', color: 'black' }} >

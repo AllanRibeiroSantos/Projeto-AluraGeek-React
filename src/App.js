@@ -7,10 +7,11 @@ import Footer from './components/layout/Footer';
 import Login from './components/pages/Login';
 import Home from './components/pages/Home';
 import Produto from './components/pages/Produto';
-import TodosProdutos from './components/pages/administracao/TodosProdutos';
 import NovoProduto from './components/pages/NovoProduto';
 import ListaPesquisa from './components/pages/ListaPesquisa';
 import PaginaADM from './components/pages/administracao/PaginaADM';
+import TodosProdutosEdicao from './components/pages/administracao/TodosProdutosEdicao';
+import ListaTodosProdutosPaginaInicial from './components/ListaProdutos/ListaTodosProdutosPaginaInicial';
 
 function App() {
 
@@ -88,8 +89,10 @@ function App() {
 
   // Envia valores do input (onde o componente foi posto)
   const [valorInput, setValorInput] = useState('');
+  const [valorInputFaleConosco, setValorInputFaleConosco] = useState('');
   const [valorInputEmail, setValorInputEmail] = useState('');
   const [valorInputSenha, setValorInputSenha] = useState('');
+  const [valorInputNumber, setValorInputNumber] = useState();
   const [enviaLogin, setEnviaLogin] = useState([]);
   const [enviaNomeLogin, setEnviaNomeLogin] = useState('');
 
@@ -139,13 +142,24 @@ function App() {
               } />
             <Route path='/todosprodutos' element=
               {
-                <TodosProdutos
+                <ListaTodosProdutosPaginaInicial
+                  enviaProdutos={enviaProdutos}
+                  idProdutoClicado={idProdutoClicado} />
+              } />
+            <Route path='/todosprodutosedicao' element=
+              {
+                <TodosProdutosEdicao
                   enviaProdutos={enviaProdutos}
                   idProdutoClicado={idProdutoClicado} />
               } />
             <Route path='/novoproduto' element=
               {
-                <NovoProduto />
+                <NovoProduto
+                  setValorInputNumber={setValorInputNumber}
+                  valorInputNumber={valorInputNumber}
+                  setValorInput={setValorInput}
+                  valorInput={valorInput}
+                  enviaProdutos={enviaProdutos} />
               } />
             <Route path='/listapesquisa' element=
               {
@@ -162,8 +176,8 @@ function App() {
         </main>
         <Footer
           enviaMensagens={enviaMensagens}
-          setValorInput={setValorInput}
-          valorInput={valorInput} />
+          setValorInputFaleConosco={setValorInputFaleConosco}
+          valorInputFaleConosco={valorInputFaleConosco} />
       </Router>
     </>
   );

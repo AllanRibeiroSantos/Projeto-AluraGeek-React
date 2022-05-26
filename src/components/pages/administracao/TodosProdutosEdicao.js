@@ -4,7 +4,7 @@ import ButtonAzul from '../../buttons/ButtonAzul';
 import CardimageTodosProdutos from '../../ListaProdutos/CardimageTodosProdutos';
 import { Link } from 'react-router-dom';
 
-export default function TodosProdutos({ enviaProdutos, idProdutoClicado }) {
+export default function TodosProdutosEdicao({ enviaProdutos, idProdutoClicado }) {
 
   // Dados da API vindo diretamente do App
 

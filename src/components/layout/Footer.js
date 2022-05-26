@@ -4,8 +4,9 @@ import Input from '../form/Input';
 import styles from './Footer.module.css';
 import { BsGithub, BsLinkedin, BsYoutube } from 'react-icons/bs';
 import AluraLogoFooter from './AluraLogoFooter';
+import InputFaleConosco from '../form/InputFaleConosco';
 
-export default function Footer({ enviaMensagens, setValorInput, valorInput }) {
+export default function Footer({ enviaMensagens, setValorInputFaleConosco, valorInputFaleConosco }) {
 
   const [valorTextArea, setValorTextArea] = useState('');
   const [mensagemAlerta, setMensagemAlerta] = useState(false);
@@ -13,10 +14,10 @@ export default function Footer({ enviaMensagens, setValorInput, valorInput }) {
   function pegaInput(evento) {
     evento.preventDefault();
 
-    if (valorInput && valorTextArea) {
+    if (valorInputFaleConosco && valorTextArea) {
       // Todas as letras acentuadas ou não; não pode numeros; e deve ter mais que 3 caracteres.
       const objRegexInput = /^[a-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÒÖÚÇÑ ]{3,}$/gi;
-      const inputMatch = objRegexInput.test(valorInput);
+      const inputMatch = objRegexInput.test(valorInputFaleConosco);
 
       // Minimo de 10 caracteres quaisquer.
       const objRegexTextArea = /^.{10,}$/gi;
@@ -33,7 +34,7 @@ export default function Footer({ enviaMensagens, setValorInput, valorInput }) {
 
         // Fazer com que a primeira letra sempre fique maiúscula
         // Por algum motivo o join não está funcionando (diz que não é uma função)
-          // let valorLower = valorInput.toLowerCase();
+          // let valorLower = valorInputFaleConosco.toLowerCase();
           // valorLower.split(" ");
           // valorLower[0].toUpperCase();
           // valorLower.join(" ")
@@ -50,7 +51,7 @@ export default function Footer({ enviaMensagens, setValorInput, valorInput }) {
             },
             body: JSON.stringify({
               "id": ultimoId,
-              "nome": valorInput,
+              "nome": valorInputFaleConosco,
               "mensagem": valorTextArea
             })
           })
@@ -77,10 +78,10 @@ export default function Footer({ enviaMensagens, setValorInput, valorInput }) {
           </ul>
           <form className={styles.footer_form} onSubmit={pegaInput}>
             <p className={styles.footer_paragr}>Fale conosco</p>
-            <Input
+            <InputFaleConosco
               type='text'
               placeholder='Nome'
-              setValorInput={setValorInput}
+              setValorInputFaleConosco={setValorInputFaleConosco}
               enviaMensagemAlerta={mensagemAlerta}
               mensagemAlerta='Verifique se os campos atingem os requisitos' />
             <textarea
