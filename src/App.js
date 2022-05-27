@@ -5,10 +5,10 @@ import './assets/reset.css';
 import './assets/base.css';
 
 // import { funcaoProdutos, funcaoCategorias, funcaoMensagens, funcaoLogin } from './api';
-// import { funcaoProdutos } from './api';
-// import { funcaoCategorias } from './api';
-// import { funcaoMensagens } from './api';
-// import { funcaoLogin } from './api';
+import { funcaoProdutos } from './api';
+import { funcaoCategorias } from './api';
+import { funcaoMensagens } from './api';
+import { funcaoLogin } from './api';
 
 import Footer from './components/layout/Footer';
 import Login from './components/pages/Login';
