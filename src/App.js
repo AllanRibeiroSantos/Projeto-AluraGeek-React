@@ -3,6 +3,13 @@ import Header from './components/layout/Header';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './assets/reset.css';
 import './assets/base.css';
+
+// import { funcaoProdutos, funcaoCategorias, funcaoMensagens, funcaoLogin } from './api';
+// import { funcaoProdutos } from './api';
+// import { funcaoCategorias } from './api';
+// import { funcaoMensagens } from './api';
+// import { funcaoLogin } from './api';
+
 import Footer from './components/layout/Footer';
 import Login from './components/pages/Login';
 import Home from './components/pages/Home';
@@ -12,48 +19,26 @@ import ListaPesquisa from './components/pages/ListaPesquisa';
 import PaginaADM from './components/pages/administracao/PaginaADM';
 import TodosProdutosEdicao from './components/pages/administracao/TodosProdutosEdicao';
 import ListaTodosProdutosPaginaInicial from './components/ListaProdutos/ListaTodosProdutosPaginaInicial';
+import EdicaoProduto from './components/pages/EdicaoProduto';
 
 function App() {
 
+  //Responsavel pela requisição do produto
   const [enviaProdutos, setEnviaProdutos] = useState([]);
   const [produtoClicado, setProdutoClicado] = useState([]);
-
-  useEffect(() => {
-    fetch('https://my-json-server.typicode.com/AllanRibeiroSantos/Projeto-AluraGeek-React/produtos',
-      {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      })
-      .then(resposta => resposta.json())
-      .then(data => setEnviaProdutos(data))
-      .catch(erro => console.log(erro))
-  }, [])
+  useEffect(() => funcaoProdutos(setEnviaProdutos), []);
 
   // Dados (id) recebido do botão Ver Produto
   function idProdutoClicado(id_produto) {
     setProdutoClicado(id_produto);
   }
 
+  //Responsavel pelos requisição da categoria
   const [enviaCategorias, setEnviaCategorias] = useState([]);
-
-  useEffect(() => {
-    fetch('https://my-json-server.typicode.com/AllanRibeiroSantos/Projeto-AluraGeek-React/categorias',
-      {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      })
-      .then(resposta => resposta.json())
-      .then(data => setEnviaCategorias(data))
-      .catch(erro => console.log(erro))
-  }, [])
-
-  const [enviaPesquisa, setEnviaPesquisa] = useState([]);
+  useEffect(() => funcaoCategorias(setEnviaCategorias), []);
 
   // Dados recebidos pelo input do campo de pesquisa do Header
+  const [enviaPesquisa, setEnviaPesquisa] = useState([]);
   function pesquisa(event) {
     event.preventDefault();
     const palavraPesquisada = event.target.value;
@@ -72,22 +57,11 @@ function App() {
     }
   }
 
+  //Responsavel pelos requisição das mensagens localhost
   const [enviaMensagens, setEnviaMensagens] = useState([])
+  useEffect(() => funcaoMensagens(setEnviaMensagens));
 
-  useEffect(() => {
-    fetch('http://localhost:3001/mensagens',
-      {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      })
-      .then(resposta => resposta.json())
-      .then(data => setEnviaMensagens(data))
-      .catch(erro => console.log(erro))
-  }, [])
-
-  // Envia valores do input (onde o componente foi posto)
+  // Salva o estado dos inputs do projeto
   const [valorInput, setValorInput] = useState('');
   const [valorInputFaleConosco, setValorInputFaleConosco] = useState('');
   const [valorInputEmail, setValorInputEmail] = useState('');
@@ -96,18 +70,7 @@ function App() {
   const [enviaLogin, setEnviaLogin] = useState([]);
   const [enviaNomeLogin, setEnviaNomeLogin] = useState('');
 
-  useEffect(() => {
-    fetch('https://my-json-server.typicode.com/AllanRibeiroSantos/Projeto-AluraGeek-React/login',
-      {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      })
-      .then(resposta => resposta.json())
-      .then(data => setEnviaLogin(data))
-      .catch(erro => console.log(erro))
-  }, [])
+  useEffect(() => funcaoLogin(setEnviaLogin))
 
   return (
     <>
@@ -150,7 +113,8 @@ function App() {
               {
                 <TodosProdutosEdicao
                   enviaProdutos={enviaProdutos}
-                  idProdutoClicado={idProdutoClicado} />
+                  idProdutoClicado={idProdutoClicado}
+                  enviaProdutoClicado={produtoClicado} />
               } />
             <Route path='/novoproduto' element=
               {
@@ -171,6 +135,10 @@ function App() {
               {
                 <PaginaADM
                   enviaNomeLogin={enviaNomeLogin} />
+              } />
+            <Route path='/edicaoproduto' element=
+              {
+                <EdicaoProduto />
               } />
           </Routes>
         </main>

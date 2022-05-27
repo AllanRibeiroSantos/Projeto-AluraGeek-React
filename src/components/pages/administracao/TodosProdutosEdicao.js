@@ -6,8 +6,6 @@ import { Link } from 'react-router-dom';
 
 export default function TodosProdutosEdicao({ enviaProdutos, idProdutoClicado }) {
 
-  // Dados da API vindo diretamente do App
-
   return (
     <>
       <section className={styles.todosProdutos_section_container}>
