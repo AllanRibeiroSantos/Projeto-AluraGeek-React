@@ -4,7 +4,9 @@ export function funcaoProdutos(useState) {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json'
-      }
+      },
+      maxContentLength: Infinity,
+      maxBodyLength: Infinity
     })
     .then(resposta => resposta.json())
     .then(data => useState(data))
@@ -17,7 +19,9 @@ export function funcaoCategorias(useState) {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json'
-      }
+      },
+      maxContentLength: Infinity,
+      maxBodyLength: Infinity
     })
     .then(resposta => resposta.json())
     .then(data => useState(data))
@@ -30,7 +34,9 @@ export function funcaoMensagens(useState) {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json'
-      }
+      },
+      maxContentLength: Infinity,
+      maxBodyLength: Infinity
     })
     .then(resposta => resposta.json())
     .then(data => useState(data))
@@ -43,7 +49,9 @@ export function funcaoLogin(useState) {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json'
-      }
+      },
+      maxContentLength: Infinity,
+      maxBodyLength: Infinity
     })
     .then(resposta => resposta.json())
     .then(data => useState(data))
