@@ -1,15 +1,9 @@
 import { React, useState, useEffect } from 'react';
-import Header from './components/layout/Header';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './assets/reset.css';
 import './assets/base.css';
-
-// import { funcaoProdutos, funcaoCategorias, funcaoMensagens, funcaoLogin } from './api';
-import { funcaoProdutos } from './api';
-import { funcaoCategorias } from './api';
-import { funcaoMensagens } from './api';
-import { funcaoLogin } from './api';
-
+import { funcaoProdutos, funcaoCategorias, funcaoMensagens, funcaoLogin } from './api';
+import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import Login from './components/pages/Login';
 import Home from './components/pages/Home';
@@ -21,7 +15,7 @@ import TodosProdutosEdicao from './components/pages/administracao/TodosProdutosE
 import ListaTodosProdutosPaginaInicial from './components/ListaProdutos/ListaTodosProdutosPaginaInicial';
 import EdicaoProduto from './components/pages/EdicaoProduto';
 
-function App() {
+export default function App() {
 
   //Responsavel pela requisição do produto
   const [enviaProdutos, setEnviaProdutos] = useState([]);
@@ -59,7 +53,7 @@ function App() {
 
   //Responsavel pelos requisição das mensagens localhost
   const [enviaMensagens, setEnviaMensagens] = useState([])
-  useEffect(() => funcaoMensagens(setEnviaMensagens));
+  useEffect(() => funcaoMensagens(setEnviaMensagens), []);
 
   // Salva o estado dos inputs do projeto
   const [valorInput, setValorInput] = useState('');
@@ -70,7 +64,7 @@ function App() {
   const [enviaLogin, setEnviaLogin] = useState([]);
   const [enviaNomeLogin, setEnviaNomeLogin] = useState('');
 
-  useEffect(() => funcaoLogin(setEnviaLogin))
+  useEffect(() => funcaoLogin(setEnviaLogin), [])
 
   return (
     <>
@@ -150,5 +144,3 @@ function App() {
     </>
   );
 }
-
-export default App;
