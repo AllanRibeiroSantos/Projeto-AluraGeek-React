@@ -40,7 +40,7 @@ Exemplo: A imagem do Banner que foi fornecida é uma imagem quase quadrada, por�
 
 Ou na página de Produtos, onde foi fornecido imagens de formatos completamente diferente um do outro.
 
-<div align="center">Em construção</div><br>
+<div align="center"><img src="https://user-images.githubusercontent.com/61354355/171233973-9c4aab49-c572-4459-bb8a-d1ed76e93954.gif"></div><br>
 
 Em ambos os casos, para conseguir achar um meio termo em que todas as imagens/tamanho de tela ficassem razoavelmente boas foi bem difícil.
 
