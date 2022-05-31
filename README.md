@@ -28,7 +28,7 @@ Também deve conter:
 ### Projeto: Ilustrações
 
 **Ilustração do projeto, de forma resumida:**
-<div align="center">Em construção</div><br>
+<div align="center"><img src="https://user-images.githubusercontent.com/61354355/171237730-db0d730d-cad6-4c0a-9ded-e8bad7d99af2.gif"></div><br>
 
 **Desafios**
 
@@ -50,13 +50,13 @@ Existe uma lista de bugs e funcionalidades bem grande que eu ainda não consegui
 - Antes do carregamento da API na página inicial o header fica colado com o footer, eu deveria adicionar algum espaçamento entre eles ou algum icone para mostrar que a API ainda está carregando;
 - As vezes acontece o erro na página Home: TypeError: NetworkError when attempting to fetch resource;
 - Corrigir todos os problemas de 'Each child in a list should have a unique "key" prop';
-- Arrumar o erro que está dando no ReactDOM que fala que não é mais suportado ao React 18;
+- Arrumar o erro que está dando no ReactDOM que fala que não é mais suportado ao React 18;<br><br>
 
   **Header**
   - Final do botão não está alinhado com o conteúdo abaixo (main);
-  - Implementar interface de pesquisa para dispositivos móveis;
+  - Implementar campo de pesquisa para dispositivos móveis;
 
-	**ListaProdutosPaginaInicial**
+  **ListaProdutosPaginaInicial**
   - Adicionar um botão (funcional) para rodar os produtos, enquanto ainda está no tamanho desktop;
 
   **Produto**
