@@ -9,7 +9,7 @@ A propósta era fazer um site de venda de produtos nerd e nele eu apliquei:
 - Utilização de uma API fake;
 - Validação de formulários;
 - Utilização de pesquisa de produtos;
-- React;
+- React;<br>
 	Hooks utilizados:
 	- useState e useEffect;
 
@@ -20,10 +20,10 @@ Também deve conter:
 - Formulário para enviar mensagens ao administrador no rodapé;
 
 **Dependências necessárias para rodar o projeto**
-- npm install react-scripts@latest ; (funcionamento do CSS.modules)
-- npm install react-icons --save ;
-- npm install react-router-dom ;
-- npm install json-server ;
+- npm install react-scripts@latest
+- npm install react-icons --save
+- npm install react-router-dom
+- npm install json-server
 
 ### Projeto: Ilustrações
 
@@ -31,11 +31,12 @@ Também deve conter:
 <div align="center">Em construção</div><br>
 
 **Desafios**
+
 Por incrivel que pareça, as partes mais desafiadoras para mim foi no HTML e CSS. Sempre utilizei o Flexbox para agrupar e alinhar elementos e achei que fazendo bem era possível de aplicar ele em qualquer parte do projeto, bom, esse projeto me provou que não, e eu tive que começar a utilizar outras tecnicas como Grid e Position (relative, absolute), fora outros métodos em partes específicas.
 
 Exemplo: A imagem do Banner que foi fornecida é uma imagem quase quadrada, porém no projeto é necessário que ele tenha um formato wide que pegue a página inteira:
 
-<div align="center">Em construção</div><br>
+<div align="center"><img src="https://user-images.githubusercontent.com/61354355/171231522-530e8c0c-c4ed-4e14-a104-ebc3d030aed0.gif"></div><br>
 
 Ou na página de Produtos, onde foi fornecido imagens de formatos completamente diferente um do outro.
 
