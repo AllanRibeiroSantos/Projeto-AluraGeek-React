@@ -161,15 +161,6 @@
       "img_large": "https://user-images.githubusercontent.com/61354355/171054160-06baf7f3-8c84-4c48-aeef-91419df7f57a.jpeg",
       "categoria": "Diversos",
       "descricao": "[ Descrição ]"
-    },
-    {
-      "id": 19,
-      "nome": "Sata (teste)",
-      "valor": "R$ 50,00",
-      "imagem": "link da imagem",
-      "img_large": "link da imagem larga",
-      "categoria": "Adicionar uma categoria",
-      "descricao": "Produto qualquer adicionado dinamicamente"
     }
   ],
   "categorias": [
@@ -205,21 +196,6 @@
       "id": 1,
       "nome": "Nome da Pessoa da Silva",
       "mensagem": "Alguma mensagem"
-    },
-    {
-      "id": 2,
-      "nome": "Camila Fransisco",
-      "mensagem": "Olá eu estou apaixonada pelo dono do site, como eu consigo o contato dele?"
-    },
-    {
-      "id": 3,
-      "nome": "Allan Ribeiro Santos",
-      "mensagem": "Mandando uma mensagem para saber se os administradores estão ON."
-    },
-    {
-      "id": 4,
-      "nome": "Caw",
-      "mensagem": "1234567890"
     }
   ]
 }

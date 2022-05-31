@@ -124,7 +124,8 @@ export default function App() {
               {
                 <ListaPesquisa
                   enviaPesquisa={enviaPesquisa}
-                  enviaProdutos={enviaProdutos} />
+                  enviaProdutos={enviaProdutos}
+                  idProdutoClicado={idProdutoClicado} />
               } />
             <Route path='/administracao' element=
               {

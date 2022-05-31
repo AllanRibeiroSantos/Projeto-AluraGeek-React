@@ -30,7 +30,7 @@ export default function ListaProdutosSimilares({ nomeCategoria, categoriaProduto
             id_key={card.id}
           />
         ))}
-        <ButtonArrow />
+        {/* <ButtonArrow /> */}
       </div>
     </section>
   )

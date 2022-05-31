@@ -28,7 +28,7 @@ export default function ListaProdutosPaginaInicial({ categoriaProduto, idProduto
             id_key={card.id}
           />
         ))}
-        <ButtonArrow />
+        {/* <ButtonArrow /> */}
       </div>
     </section>
   )
