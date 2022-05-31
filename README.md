@@ -9,7 +9,7 @@ A propósta era fazer um site de venda de produtos nerd e nele eu apliquei:
 - Utilização de uma API fake;
 - Validação de formulários;
 - Utilização de pesquisa de produtos;
-- React;
+- React;<br>
 	Hooks utilizados:
 	- useState e useEffect;
 
@@ -20,26 +20,27 @@ Também deve conter:
 - Formulário para enviar mensagens ao administrador no rodapé;
 
 **Dependências necessárias para rodar o projeto**
-- npm install react-scripts@latest ; (funcionamento do CSS.modules)
-- npm install react-icons --save ;
-- npm install react-router-dom ;
-- npm install json-server ;
+- npm install react-scripts@latest
+- npm install react-icons --save
+- npm install react-router-dom
+- npm install json-server
 
 ### Projeto: Ilustrações
 
 **Ilustração do projeto, de forma resumida:**
-<div align="center">Em construção</div><br>
+<div align="center"><img src="https://user-images.githubusercontent.com/61354355/171237730-db0d730d-cad6-4c0a-9ded-e8bad7d99af2.gif"></div><br>
 
 **Desafios**
+
 Por incrivel que pareça, as partes mais desafiadoras para mim foi no HTML e CSS. Sempre utilizei o Flexbox para agrupar e alinhar elementos e achei que fazendo bem era possível de aplicar ele em qualquer parte do projeto, bom, esse projeto me provou que não, e eu tive que começar a utilizar outras tecnicas como Grid e Position (relative, absolute), fora outros métodos em partes específicas.
 
 Exemplo: A imagem do Banner que foi fornecida é uma imagem quase quadrada, porém no projeto é necessário que ele tenha um formato wide que pegue a página inteira:
 
-<div align="center">Em construção</div><br>
+<div align="center"><img src="https://user-images.githubusercontent.com/61354355/171231522-530e8c0c-c4ed-4e14-a104-ebc3d030aed0.gif"></div><br>
 
 Ou na página de Produtos, onde foi fornecido imagens de formatos completamente diferente um do outro.
 
-<div align="center">Em construção</div><br>
+<div align="center"><img src="https://user-images.githubusercontent.com/61354355/171233973-9c4aab49-c572-4459-bb8a-d1ed76e93954.gif"></div><br>
 
 Em ambos os casos, para conseguir achar um meio termo em que todas as imagens/tamanho de tela ficassem razoavelmente boas foi bem difícil.
 
@@ -49,13 +50,13 @@ Existe uma lista de bugs e funcionalidades bem grande que eu ainda não consegui
 - Antes do carregamento da API na página inicial o header fica colado com o footer, eu deveria adicionar algum espaçamento entre eles ou algum icone para mostrar que a API ainda está carregando;
 - As vezes acontece o erro na página Home: TypeError: NetworkError when attempting to fetch resource;
 - Corrigir todos os problemas de 'Each child in a list should have a unique "key" prop';
-- Arrumar o erro que está dando no ReactDOM que fala que não é mais suportado ao React 18;
+- Arrumar o erro que está dando no ReactDOM que fala que não é mais suportado ao React 18;<br><br>
 
   **Header**
   - Final do botão não está alinhado com o conteúdo abaixo (main);
-  - Implementar interface de pesquisa para dispositivos móveis;
+  - Implementar campo de pesquisa para dispositivos móveis;
 
-	**ListaProdutosPaginaInicial**
+  **ListaProdutosPaginaInicial**
   - Adicionar um botão (funcional) para rodar os produtos, enquanto ainda está no tamanho desktop;
 
   **Produto**
