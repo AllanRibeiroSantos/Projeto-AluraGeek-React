@@ -4,6 +4,11 @@
   padding: 2rem;
 }
 
+.adm_card:hover {
+  background-color: var(--fundo_azul_claro);
+  border: 2px solid var(--botao_azul_hover);
+}
+
 .adm_card h2 {
   font-size: var(--tamanho_fonte22);
 }

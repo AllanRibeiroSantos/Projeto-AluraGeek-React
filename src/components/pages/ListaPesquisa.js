@@ -4,15 +4,12 @@ import Cardimage from '../ListaProdutos/Cardimage';
 
 export default function ListaPesquisa({ enviaProdutos, enviaPesquisa }) {
 
-  // Os valores da pesquisa que vem de outras páginas ainda não estão sendo passadas para o filter, porém pesquisas feitas dentro da página ListaPesquisa já estão funcionando. NOTA: Ainda devo tentar fazer com que os valores da pesquisa fiquem em letra minúscula.
+  // Usar window.location.href para redirecionar para esta página faz com que a página seja recaregada e perca as informações do State, perdendo o enviaPesquisa.
 
-  // O grande problema aqui foi fazer um useState aqui e no componente App, fazendo que o react re-renderizasse infinitamente.
-
-  const pesquisa = enviaProdutos.filter(item => item.nome.startsWith(enviaPesquisa))
-  // Deveria ficar: filter(item => item.nome.toLowerCase().includes(itemPesquisado.toLowerCase()))
+  const pesquisa = enviaProdutos.filter(item => item.nome.toLowerCase().includes(enviaPesquisa.toLowerCase()))
   return (
     <>
-      <section className={styles.todosProdutos_section_container}>
+    <section className={styles.todosProdutos_section_container}>
         <div className={styles.todosProdutos_categoria}>
           <h2>Resultados</h2>
         </div>

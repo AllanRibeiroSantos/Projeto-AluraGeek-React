@@ -1,12 +1,14 @@
+// my-json-server não está suportando a quantidade de informação e está retornando 'Insufficient Storage'
+
 export function funcaoProdutos(useState) {
   fetch('https://my-json-server.typicode.com/AllanRibeiroSantos/Projeto-AluraGeek-React/produtos',
     {
+  // fetch('http://localhost:3001/produtos',
+  //   {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json'
-      },
-      maxContentLength: Infinity,
-      maxBodyLength: Infinity
+      }
     })
     .then(resposta => resposta.json())
     .then(data => useState(data))
@@ -16,12 +18,12 @@ export function funcaoProdutos(useState) {
 export function funcaoCategorias(useState) {
   fetch('https://my-json-server.typicode.com/AllanRibeiroSantos/Projeto-AluraGeek-React/categorias',
     {
+    // fetch('http://localhost:3001/categorias',
+    // {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json'
-      },
-      maxContentLength: Infinity,
-      maxBodyLength: Infinity
+      }
     })
     .then(resposta => resposta.json())
     .then(data => useState(data))
@@ -34,9 +36,7 @@ export function funcaoMensagens(useState) {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json'
-      },
-      maxContentLength: Infinity,
-      maxBodyLength: Infinity
+      }
     })
     .then(resposta => resposta.json())
     .then(data => useState(data))
@@ -46,12 +46,12 @@ export function funcaoMensagens(useState) {
 export function funcaoLogin(useState) {
   fetch('https://my-json-server.typicode.com/AllanRibeiroSantos/Projeto-AluraGeek-React/login',
     {
+    // fetch('http://localhost:3001/login',
+    // {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json'
-      },
-      maxContentLength: Infinity,
-      maxBodyLength: Infinity
+      }
     })
     .then(resposta => resposta.json())
     .then(data => useState(data))

@@ -3,6 +3,7 @@ import Cardimage from './Cardimage';
 import styles from './ListaProdutosPaginaInicial.module.css';
 import { AiOutlineArrowRight } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
+import ButtonArrow from '../buttons/ButtonArrow';
 
 export default function ListaProdutosSimilares({ nomeCategoria, categoriaProduto, idProdutoClicado, enviaProdutos }) {
 
@@ -29,6 +30,7 @@ export default function ListaProdutosSimilares({ nomeCategoria, categoriaProduto
             id_key={card.id}
           />
         ))}
+        <ButtonArrow />
       </div>
     </section>
   )

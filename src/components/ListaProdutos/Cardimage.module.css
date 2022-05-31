@@ -31,6 +31,7 @@
 
 @media screen and (max-width: 768px) {
   .listaProdutos_cardimage {
-    width: 156px;
+    /* width: 156px; */
+    width: 140px;
   }
 }

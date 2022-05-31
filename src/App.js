@@ -27,12 +27,13 @@ export default function App() {
     setProdutoClicado(id_produto);
   }
 
-  //Responsavel pelos requisição da categoria
+  //Responsavel pelas requisições da categoria
   const [enviaCategorias, setEnviaCategorias] = useState([]);
   useEffect(() => funcaoCategorias(setEnviaCategorias), []);
 
   // Dados recebidos pelo input do campo de pesquisa do Header
-  const [enviaPesquisa, setEnviaPesquisa] = useState([]);
+  const [enviaPesquisa, setEnviaPesquisa] = useState('');
+
   function pesquisa(event) {
     event.preventDefault();
     const palavraPesquisada = event.target.value;
@@ -51,7 +52,7 @@ export default function App() {
     }
   }
 
-  //Responsavel pelos requisição das mensagens localhost
+  //Responsavel pelas requisições das mensagens localhost
   const [enviaMensagens, setEnviaMensagens] = useState([])
   useEffect(() => funcaoMensagens(setEnviaMensagens), []);
 
@@ -119,7 +120,7 @@ export default function App() {
                   valorInput={valorInput}
                   enviaProdutos={enviaProdutos} />
               } />
-            <Route path='/listapesquisa' element=
+              <Route path='/listapesquisa' element=
               {
                 <ListaPesquisa
                   enviaPesquisa={enviaPesquisa}

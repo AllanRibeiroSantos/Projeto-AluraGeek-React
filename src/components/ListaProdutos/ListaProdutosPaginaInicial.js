@@ -3,6 +3,7 @@ import Cardimage from './Cardimage';
 import styles from './ListaProdutosPaginaInicial.module.css';
 import { AiOutlineArrowRight } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
+import ButtonArrow from '../buttons/ButtonArrow';
 
 export default function ListaProdutosPaginaInicial({ categoriaProduto, idProdutoClicado, enviaProdutos }) {
   return (
@@ -21,12 +22,13 @@ export default function ListaProdutosPaginaInicial({ categoriaProduto, idProduto
             key={card.id}
             nome_produto={card.nome}
             preco_produto={card.valor}
-            to={'/produto/'+ card.id} // Redirecionamento
+            to={'/produto/' + card.id} // Redirecionamento
             cardsrc={card.imagem} //URL da imagem
             idProdutoClicado={idProdutoClicado}
             id_key={card.id}
           />
         ))}
+        <ButtonArrow />
       </div>
     </section>
   )

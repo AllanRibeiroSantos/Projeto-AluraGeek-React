@@ -1,0 +1,27 @@
+.buttonArrow {
+  width: 47px;
+  height: 80px;
+  background-color: var(--botao_azul);
+  border: none;
+  border-radius: .2rem;
+  position: absolute;
+  top: 47px;
+  right: 0;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+}
+
+.buttonArrow:hover {
+  background-color: var(--botao_azul_hover);
+}
+
+.buttonArrow:active {
+  background-color: var(--botao_azul);
+}
+
+@media screen and (max-width: 1024px) {
+  .buttonArrow {
+    display: none;
+  }
+}
