@@ -1,21 +1,96 @@
 import React from 'react';
 import Cardimage from './Cardimage';
-import styles from './ListaProdutosPaginaInicial.module.css';
 import { AiOutlineArrowRight } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
-import ButtonArrow from '../buttons/ButtonArrow';
+import styled from 'styled-components';
 
-export default function ListaProdutosPaginaInicial({ categoriaProduto, idProdutoClicado, enviaProdutos }) {
+const ListaProdutosPaginaInicial = styled.section`
+  width: var(--largura_conteudo1);
+  margin: auto;
+
+  .main_categoria_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 4rem;
+    margin-bottom: 1rem;
+  }
+
+  .main_categoria_container p {
+    color: var(--cor_azul);
+  }
+
+  .section_card_container {
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .main_titulo {
+    font-size: var(--tamanho_fonteh2);
+  }
+
+  &:last-child {
+    padding-bottom: 4rem;
+  }
+
+  @media screen and (max-width: 1024px) {
+    .main_categoria_container {
+      margin-top: 4rem;
+    }
+
+    & {
+      width: var(--largura_conteudo2);
+    }
+
+    .section_card_container {
+      overflow: scroll;
+      overflow-y: hidden;
+    }
+
+    .main_titulo {
+      font-size: var(--tamanho_fonte22);
+    }
+
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    .section_card_container::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* Hide scrollbar for IE, Edge and Firefox */
+    .section_card_container {
+      -ms-overflow-style: none;  /* IE and Edge */
+      scrollbar-width: none;  /* Firefox */
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    & {
+      width: var(--largura_conteudo3);
+    }
+
+    .main_categoria_container {
+      margin-top: 1rem;
+    }
+
+    &:last-child {
+      padding-bottom: 1rem;
+    }
+  }
+`;
+
+export default ({ categoriaProduto, idProdutoClicado, enviaProdutos }) => {
   return (
-    <section className={styles.section_container}>
-      <div className={styles.main_categoria_container}>
-        <h2 className={styles.main_titulo}>{categoriaProduto}</h2>
+    <ListaProdutosPaginaInicial>
+      <div className="main_categoria_container">
+        <h2 className="main_titulo">{categoriaProduto}</h2>
         <Link to='/todosprodutos' style={{ textDecoration: 'none' }} >
           <p>Ver tudo <AiOutlineArrowRight /></p>
         </Link>
       </div>
 
-      <div className={styles.section_card_container}>
+      <div className="section_card_container">
         {enviaProdutos.map(card => (
           categoriaProduto == card.categoria &&
           <Cardimage
@@ -28,8 +103,7 @@ export default function ListaProdutosPaginaInicial({ categoriaProduto, idProduto
             id_key={card.id}
           />
         ))}
-        {/* <ButtonArrow /> */}
       </div>
-    </section>
+    </ListaProdutosPaginaInicial>
   )
 }

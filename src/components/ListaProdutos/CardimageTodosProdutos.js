@@ -1,10 +1,66 @@
 import { React } from 'react';
 import { Link } from 'react-router-dom';
-import styles from './CardimageTodosProdutos.module.css';
 import { FaTrash } from 'react-icons/fa';
 import { RiPencilFill } from 'react-icons/ri';
+import styled from 'styled-components';
 
-export default function CardimageTodosProdutos({ cardsrc, nome_produto, preco_produto, to, idProdutoClicado, id_key }) {
+const CardimageTodosProdutos = styled.div`
+  position: relative;
+
+  .cardtodosprodutos_listaProdutos_cardimage {
+    width: 176px;
+    height: 174px;
+    background-color: blue;
+  }
+
+  .trash_icon, .pencil_icon  {
+    position: absolute;
+    width: 18px;
+    top: 0;
+    right: 0;
+    color: #FFF;
+  }
+
+  .trash_icon  {
+    margin-right: 53px;
+    margin-top: 11px;
+  }
+
+  .pencil_icon {
+    margin-right: 11px;
+    margin-top: 11px;
+  }
+
+  & p {
+    margin-top: 0.5rem;
+  }
+
+  .cardtodosprodutos_nome_produto {
+    font-size: var(--tamanho_fonte14);
+  }
+
+  .cardtodosprodutos_preco_produto {
+    font-weight: 700;
+  }
+
+  .cardtodosprodutos_ver_produto {
+    color: var(--cor_azul);
+  }
+
+  @media screen and (max-width: 1024px) {
+    .cardtodosprodutos_listaProdutos_cardimage {
+      width: 164px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .cardtodosprodutos_listaProdutos_cardimage {
+      width: 140px;
+    }
+  }
+`;
+
+export default ({ cardsrc, nome_produto, preco_produto, to, idProdutoClicado, id_key }) => {
   // O ideal é eu fazer tudo com a API localhost
 
   function deletaCard() {
@@ -21,24 +77,24 @@ export default function CardimageTodosProdutos({ cardsrc, nome_produto, preco_pr
   }
 
   return (
-    <div className={styles.cardtodosprodutos_container}>
-      <img className={styles.cardtodosprodutos_listaProdutos_cardimage}
+    <CardimageTodosProdutos>
+      <img className="cardtodosprodutos_listaProdutos_cardimage"
         src={cardsrc} />
-      <div className={styles.trash_icon}
+      <div className="trash_icon"
         onClick={deletaCard} >
         <FaTrash style={{ cursor: 'pointer' }} />
       </div>
-      <div className={styles.pencil_icon}>
+      <div className="pencil_icon">
         <Link to='/edicaoproduto'>
           <RiPencilFill style={{ textDecoration: 'none', color: 'white' }} />
         </Link>
       </div>
-      <p className={styles.cardtodosprodutos_nome_produto}>{nome_produto}</p>
-      <p className={styles.cardtodosprodutos_preco_produto} >{preco_produto}</p>
+      <p className="cardtodosprodutos_nome_produto">{nome_produto}</p>
+      <p className="cardtodosprodutos_preco_produto" >{preco_produto}</p>
       <Link to={to} style={{ textDecoration: 'none' }} >
-        <p className={styles.cardtodosprodutos_ver_produto}
+        <p className="cardtodosprodutos_ver_produto"
           onClick={() => idProdutoClicado(id_key)}>Ver Produto</p>
       </Link>
-    </div>
+    </CardimageTodosProdutos>
   )
 }

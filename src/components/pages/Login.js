@@ -1,10 +1,44 @@
 import  { React, useState } from 'react';
+import styled from 'styled-components';
 import ButtonAzul from '../buttons/ButtonAzul';
 import InputEmail from '../form/InputEmail';
 import InputSenha from '../form/InputSenha';
-import styles from './Login.module.css'
 
-export default function Login({ enviaLogin, valorInputEmail, setValorInputEmail, valorInputSenha, setValorInputSenha, setEnviaNomeLogin }) {
+const Login = styled.div`
+  display: flex;
+  justify-content: center;
+  background-color: var(--fundo_cinza);
+  height: var(--espacamento_footer);
+
+  .login_form_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 26.4375rem;
+  }
+
+  .login_form_container label {
+    /* text-align: center; */
+    font-size: var(--tamanho_fonte18);
+  }
+
+  .login_form_container div:not(:first-child) {
+    margin-top: 1.5rem;
+  }
+
+  @media screen and (max-width: 1024px) {
+    .login_form_container {
+      width: 275px;
+    }
+
+    .login_form_button {
+      display: flex;
+      justify-content: center;
+    }
+  }
+`;
+
+export default ({ enviaLogin, valorInputEmail, setValorInputEmail, valorInputSenha, setValorInputSenha, setEnviaNomeLogin }) => {
 
   // Email e senha para teste: Email: email@algo.com.br, Senha: 123456
 
@@ -35,8 +69,8 @@ export default function Login({ enviaLogin, valorInputEmail, setValorInputEmail,
   }
 
   return (
-    <div className={styles.login_main_container}>
-      <form className={styles.login_form_container}
+    <Login>
+      <form className="login_form_container"
         onSubmit={onSubmitLogin}
       >
         <label>Iniciar Sessão</label>
@@ -53,10 +87,10 @@ export default function Login({ enviaLogin, valorInputEmail, setValorInputEmail,
             setValorInputSenha={setValorInputSenha}
           />
         </div>
-        <div className={styles.login_form_button}>
+        <div className="login_form_button">
           <ButtonAzul text='Entrar' />
         </div>
       </form>
-    </div>
+    </Login>
   )
 }

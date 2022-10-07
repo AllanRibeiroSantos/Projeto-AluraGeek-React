@@ -1,12 +1,25 @@
 import React from 'react';
-import styles from './AluraLogoFooter.module.css';
 import alurageeklogo from '../../img/alurageeklogo.svg'
+import styled from 'styled-components';
 
-export default function AluraLogoFooter() {
+const AluraLogoFooter = styled.div`
+  display: flex;
+  align-items: center;
+
+  .footer_logoName {
+    color: var(--cor_azul);
+    margin-left: 2px;
+  }
+`;
+
+export default () => {
   return (
-    <div className={styles.footer_logo_container}>
-      <img src={alurageeklogo} className={styles.footer_container_logo} alt='Logo AluraGeek' />
-      <p><span className={styles.footer_logoName}>Alura</span>Geek</p>
-    </div>
+    <AluraLogoFooter>
+      <img className="footer_container_logo"
+        src={alurageeklogo}
+        alt='Logo AluraGeek'
+      />
+      <p><span className="footer_logoName">Alura</span>Geek</p>
+    </AluraLogoFooter>
   )
 }

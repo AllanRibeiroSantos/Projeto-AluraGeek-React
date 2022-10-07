@@ -1,13 +1,13 @@
 import React from 'react';
-import styles from './Input.module.css';
+import { InputContainer } from './Input';
 
 export default function InputNumber({ name, placeholder, setValorInputNumber, enviaMensagemAlerta, mensagemAlerta }) {
   return (
-    <fieldset className={styles.form_container}>
+    <InputContainer>
       {enviaMensagemAlerta &&
-        <p className={styles.form_alerta}>{mensagemAlerta}</p>
+        <p className="form_alerta">{mensagemAlerta}</p>
       }
-      <input className={styles.form_input}
+      <input className="form_input"
         type='number'
         name={name}
         id={name}
@@ -15,6 +15,6 @@ export default function InputNumber({ name, placeholder, setValorInputNumber, en
         data-getinput
         onChange={evento => setValorInputNumber(evento.target.value)}
       />
-    </fieldset>
+    </InputContainer>
   )
 }

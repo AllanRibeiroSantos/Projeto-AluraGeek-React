@@ -1,21 +1,88 @@
 import React from 'react';
-import styles from './TodosProdutos.module.css';
 import ButtonAzul from '../../buttons/ButtonAzul';
 import CardimageTodosProdutos from '../../ListaProdutos/CardimageTodosProdutos';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
-export default function TodosProdutosEdicao({ enviaProdutos, idProdutoClicado }) {
+const TodosProdutosEdicao = styled.section`
+  width: var(--largura_conteudo1);
+  margin: auto;
+  padding-bottom: 4rem;
+
+  .todosProdutos_container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 176px);
+    /* Tem o mesmo efeito do flex-wrap*/
+    column-gap: 1rem;
+    row-gap: 4rem;
+    justify-content: center;
+  }
+
+  .todosProdutos_categoria {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+
+  .todosProdutos_categoria h2 {
+    font-size: 2rem;
+    font-weight: 700;
+  }
+
+  @media screen and (max-width: 1024px) {
+    & {
+      width: var(--largura_conteudo2);
+    }
+
+    .todosProdutos_container {
+      grid-template-columns: repeat(auto-fill, 164px);
+      row-gap: 1rem;
+    }
+
+    .todosProdutos_categoria h2 {
+      font-size: var(--tamanho_fonte22);
+    }
+
+    & {
+      padding-bottom: 2rem;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    & {
+      width: var(--largura_conteudo2);
+    }
+
+    .todosProdutos_container {
+      grid-template-columns: repeat(auto-fill, 140px);
+    }
+
+    .todosProdutos_categoria {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .todosProdutos_categoria h2 {
+      margin-bottom: 1rem;
+    }
+  }
+`;
+
+export default ({ enviaProdutos, idProdutoClicado }) => {
 
   return (
     <>
-      <section className={styles.todosProdutos_section_container}>
-        <div className={styles.todosProdutos_categoria}>
+      <TodosProdutosEdicao>
+        <div className="todosProdutos_categoria">
           <h2>Todos os produtos</h2>
           <Link to='/novoproduto' style={{ textDecoration: 'none' }}>
             <ButtonAzul text='Adicionar produto' />
           </Link>
         </div>
-        <div className={styles.todosProdutos_container}>
+        <div className="todosProdutos_container">
           {enviaProdutos.map(card => (
             <div>
               <CardimageTodosProdutos
@@ -43,7 +110,7 @@ export default function TodosProdutosEdicao({ enviaProdutos, idProdutoClicado })
             </div>
           ))}
         </div>
-      </section>
+      </TodosProdutosEdicao>
     </>
   )
 }
