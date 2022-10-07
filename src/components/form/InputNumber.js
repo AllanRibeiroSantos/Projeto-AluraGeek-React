@@ -1,5 +1,5 @@
 import React from 'react';
-import { InputContainer } from './Input';
+import { InputContainer } from './styles';
 
 export default function InputNumber({ name, placeholder, setValorInputNumber, enviaMensagemAlerta, mensagemAlerta }) {
   return (

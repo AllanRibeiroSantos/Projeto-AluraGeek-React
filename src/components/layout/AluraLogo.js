@@ -1,27 +1,6 @@
 import React from 'react';
 import alurageeklogo from '../../img/alurageeklogo.svg'
-import styled from 'styled-components';
-
-const AluraLogo = styled.div`
-  display: flex;
-  align-items: center;
-  color: #000;
-
-  .header_logoName {
-    color: var(--cor_azul);
-    margin-left: 2px;
-  }
-
-  @media screen and (max-width: 1024px) { 
-    .container_logo {
-      width: 22.74px;
-    }
-
-    & p {
-      font-size: var(--tamanho_fonte10);
-    }
-  }
-`;
+import { AluraLogo } from './styles';
 
 export default () => {
   return (

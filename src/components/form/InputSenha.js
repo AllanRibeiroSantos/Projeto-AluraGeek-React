@@ -1,5 +1,5 @@
 import React from 'react';
-import { InputContainer } from './Input';
+import { InputContainer } from './styles';
 
 export default function InputSenha({ name, placeholder, setValorInputSenha, enviaMensagemAlerta, mensagemAlerta }) {
   return (

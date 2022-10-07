@@ -1,5 +1,5 @@
 import React from 'react';
-import { InputContainer } from './Input';
+import { InputContainer } from './styles';
 
 export default function InputFaleConosco({ type, name, placeholder, setValorInputFaleConosco, enviaMensagemAlerta, mensagemAlerta }) {
   return (
