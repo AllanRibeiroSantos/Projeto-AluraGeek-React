@@ -5,39 +5,40 @@ export const InputContainer = styled.fieldset`
   flex-direction: column;
 
   .form_alerta {
-  color: red;
-  margin-bottom: 0.5rem;
+    color: red;
+    margin-bottom: 0.5rem;
   }
 
   .form_input {
-  box-sizing: border-box;
-  border: none;
-  border-bottom: 1px solid #C8C8C8;
-  height: 3.5rem;
-  padding: 0.5rem 0.75rem;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 1px solid #C8C8C8;
+    height: 3.5rem;
+    font-size: 1rem;
+    padding: 0.5rem 0.75rem;
   }
 
   .form_input::placeholder {
-  color: var(--cor_cinza_claro);
-  font-size: 1rem;
+    color: var(--cor_cinza_claro);
+    font-size: 1rem;
   }
 `;
 
-
 export const InputPesquisaContainer = styled.div`
-  display: flex;
   align-items: center;
+  display: flex;
   position: relative;
 
   .form_inputPesquisa {
-    height: 2.5rem;
     border: none;
     border-radius: 1.25rem;
-    width: 24.5625rem;
     background-color: var(--fundo_cinza);
+    color: black;
+    height: 2.5rem;
+    font-size: 1rem;
     padding: 0 1rem;
     margin: 0 2rem;
-    color: #A2A2A2;
+    width: 24.5625rem;
   }
 
   .lupa_icon {

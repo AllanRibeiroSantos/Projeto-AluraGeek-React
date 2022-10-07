@@ -5,14 +5,14 @@ import InputPesquisa from '../form/InputPesquisa';
 import AluraLogo from './AluraLogo';
 import { Header } from './styles';
 
-export default ({ recebePesquisa }) => {
+export default ({ setEnviaPesquisa }) => {
   return (
     <>
       <Header>
         <div className="header_logoForm">
           <Link to='/' style={{ textDecoration: 'none' }}><AluraLogo /></Link>
           <InputPesquisa
-            recebePesquisa={recebePesquisa}
+            setEnviaPesquisa={setEnviaPesquisa}
             type='text'
             placeholder='O que deseja encontrar?' />
         </div>

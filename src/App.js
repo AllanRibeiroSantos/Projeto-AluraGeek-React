@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './assets/reset.css';
 import './assets/base.css';
 import { funcaoProdutos, funcaoCategorias, funcaoMensagens, funcaoLogin } from './api';
+
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import Login from './components/pages/Login';
@@ -34,24 +35,6 @@ export default function App() {
   // Dados recebidos pelo input do campo de pesquisa do Header
   const [enviaPesquisa, setEnviaPesquisa] = useState('');
 
-  function pesquisa(event) {
-    event.preventDefault();
-    const palavraPesquisada = event.target.value;
-
-    if (event.code == 'Enter' && palavraPesquisada) {
-      setEnviaPesquisa(palavraPesquisada);
-
-      if (window.location.pathname == '/listapesquisa') {
-        // Executa um bloco de funções caso já estiver na página
-        console.log('Estamos na pagina da lista')
-
-      } else {
-        // É redirecionado para a página de pesquisa
-        window.location.href = '/listapesquisa';
-      }
-    }
-  }
-
   //Responsavel pelas requisições das mensagens localhost
   const [enviaMensagens, setEnviaMensagens] = useState([])
   useEffect(() => funcaoMensagens(setEnviaMensagens), []);
@@ -70,7 +53,7 @@ export default function App() {
   return (
     <>
       <Router>
-        <Header recebePesquisa={pesquisa} />
+        <Header setEnviaPesquisa={setEnviaPesquisa} />
         <main>
           <Routes>
             <Route exact path='/' element=
