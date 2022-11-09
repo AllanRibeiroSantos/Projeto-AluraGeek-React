@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-export const InputContainer = styled.fieldset`
-  display: flex;
-  flex-direction: column;
+export const InputWrapper = styled.fieldset`
+    display: flex;
+    flex-direction: column;
 
   .form_alerta {
     color: red;
@@ -24,10 +24,12 @@ export const InputContainer = styled.fieldset`
   }
 `;
 
-export const InputPesquisaContainer = styled.div`
-  align-items: center;
-  display: flex;
-  position: relative;
+export const InputPesquisaWrapper = styled.div`
+  .form_container {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
 
   .form_inputPesquisa {
     border: none;

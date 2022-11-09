@@ -1,20 +1,29 @@
-import React from 'react';
-import { InputContainer } from './styles';
+import { useContext } from 'react';
+import ContextInput from '../../common/context/ContextInput';
+import { InputWrapper } from './styles';
 
-export default function Input({ type, name, placeholder, setValorInput, enviaMensagemAlerta, mensagemAlerta }) {
+export default function Input({ type, placeholder }) {
+  const { input, setInput } = useContext(ContextInput);
+
+  function inputHandler(event) {
+    const inputValue = event.target.value;
+
+    if (type) {
+      type == 'text' && setInput({ ...input, 'text': inputValue });
+      type == 'email' && setInput({ ...input, 'email': inputValue });
+      type == 'password' && setInput({ ...input, 'password': inputValue });
+      type == 'number' && setInput({ ...input, 'number': inputValue });
+    }
+  }
+
+  // Não apliquei RegEx nos inputs
   return (
-    <InputContainer >
-      {enviaMensagemAlerta &&
-        <p className="form_alerta">{mensagemAlerta}</p>
-      }
+    <InputWrapper>
       <input className="form_input"
         type={type}
-        name={name}
-        id={name}
         placeholder={placeholder}
-        data-getinput
-        onChange={evento => setValorInput(evento.target.value)}
+        onChange={(event) => inputHandler(event)}
       />
-    </InputContainer>
+    </InputWrapper>
   )
 }

@@ -1,9 +1,9 @@
-import { React, useState, useEffect } from 'react';
+import { React } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './assets/reset.css';
 import './assets/base.css';
-import { funcaoProdutos, funcaoCategorias, funcaoMensagens, funcaoLogin } from './api';
 
+// PÁGINAS
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import Login from './components/pages/Login';
@@ -17,114 +17,24 @@ import ListaTodosProdutosPaginaInicial from './components/ListaProdutos/ListaTod
 import EdicaoProduto from './components/pages/EdicaoProduto';
 
 export default function App() {
-
-  //Responsavel pela requisição do produto
-  const [enviaProdutos, setEnviaProdutos] = useState([]);
-  const [produtoClicado, setProdutoClicado] = useState([]);
-  useEffect(() => funcaoProdutos(setEnviaProdutos), []);
-
-  // Dados (id) recebido do botão Ver Produto
-  function idProdutoClicado(id_produto) {
-    setProdutoClicado(id_produto);
-  }
-
-  //Responsavel pelas requisições da categoria
-  const [enviaCategorias, setEnviaCategorias] = useState([]);
-  useEffect(() => funcaoCategorias(setEnviaCategorias), []);
-
-  // Dados recebidos pelo input do campo de pesquisa do Header
-  const [enviaPesquisa, setEnviaPesquisa] = useState('');
-
-  //Responsavel pelas requisições das mensagens localhost
-  const [enviaMensagens, setEnviaMensagens] = useState([])
-  useEffect(() => funcaoMensagens(setEnviaMensagens), []);
-
-  // Salva o estado dos inputs do projeto
-  const [valorInput, setValorInput] = useState('');
-  const [valorInputFaleConosco, setValorInputFaleConosco] = useState('');
-  const [valorInputEmail, setValorInputEmail] = useState('');
-  const [valorInputSenha, setValorInputSenha] = useState('');
-  const [valorInputNumber, setValorInputNumber] = useState();
-  const [enviaLogin, setEnviaLogin] = useState([]);
-  const [enviaNomeLogin, setEnviaNomeLogin] = useState('');
-
-  useEffect(() => funcaoLogin(setEnviaLogin), [])
-
   return (
     <>
       <Router>
-        <Header setEnviaPesquisa={setEnviaPesquisa} />
+        <Header />
         <main>
           <Routes>
-            <Route exact path='/' element=
-              {
-                <Home
-                  idProdutoClicado={idProdutoClicado}
-                  enviaProdutos={enviaProdutos}
-                  enviaCategorias={enviaCategorias} />
-              } />
-            <Route path='/login' element=
-              {
-                <Login
-                  valorInputEmail={valorInputEmail}
-                  setValorInputEmail={setValorInputEmail}
-                  valorInputSenha={valorInputSenha}
-                  setValorInputSenha={setValorInputSenha}
-                  enviaLogin={enviaLogin}
-                  setEnviaNomeLogin={setEnviaNomeLogin} />
-              } />
-            <Route path='/produto/:id' element=
-              {
-                <Produto
-                  idProdutoClicado={idProdutoClicado}
-                  idProdutoEnviado={produtoClicado}
-                  produtosEnviados={enviaProdutos}
-                  enviaProdutos={enviaProdutos} />
-              } />
-            <Route path='/todosprodutos' element=
-              {
-                <ListaTodosProdutosPaginaInicial
-                  enviaProdutos={enviaProdutos}
-                  idProdutoClicado={idProdutoClicado} />
-              } />
-            <Route path='/todosprodutosedicao' element=
-              {
-                <TodosProdutosEdicao
-                  enviaProdutos={enviaProdutos}
-                  idProdutoClicado={idProdutoClicado}
-                  enviaProdutoClicado={produtoClicado} />
-              } />
-            <Route path='/novoproduto' element=
-              {
-                <NovoProduto
-                  setValorInputNumber={setValorInputNumber}
-                  valorInputNumber={valorInputNumber}
-                  setValorInput={setValorInput}
-                  valorInput={valorInput}
-                  enviaProdutos={enviaProdutos} />
-              } />
-              <Route path='/listapesquisa' element=
-              {
-                <ListaPesquisa
-                  enviaPesquisa={enviaPesquisa}
-                  enviaProdutos={enviaProdutos}
-                  idProdutoClicado={idProdutoClicado} />
-              } />
-            <Route path='/administracao' element=
-              {
-                <PaginaADM
-                  enviaNomeLogin={enviaNomeLogin} />
-              } />
-            <Route path='/edicaoproduto' element=
-              {
-                <EdicaoProduto />
-              } />
+            <Route exact path='/' element={<Home />} />
+            <Route path='/login' element={<Login />} />
+            <Route path='/produto/:id' element={<Produto />} />
+            <Route path='/todosprodutos' element={<ListaTodosProdutosPaginaInicial />} />
+            <Route path='/todosprodutosedicao' element={<TodosProdutosEdicao />} />
+            <Route path='/novoproduto' element={<NovoProduto />} />
+            <Route path='/listapesquisa' element={<ListaPesquisa />} />
+            <Route path='/administracao' element={<PaginaADM />} />
+            <Route path='/edicaoproduto' element={<EdicaoProduto />} />
           </Routes>
         </main>
-        <Footer
-          enviaMensagens={enviaMensagens}
-          setValorInputFaleConosco={setValorInputFaleConosco}
-          valorInputFaleConosco={valorInputFaleConosco} />
+        <Footer />
       </Router>
     </>
   );

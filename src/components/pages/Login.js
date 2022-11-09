@@ -1,62 +1,68 @@
-import  { React, useState } from 'react';
+import { useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+
 import ButtonAzul from '../buttons/ButtonAzul';
-import InputEmail from '../form/InputEmail';
-import InputSenha from '../form/InputSenha';
+import Input from '../form/Input';
+import MensagemAlerta from '../form/MensagemAlerta';
+
+import ContextInput from '../../common/context/ContextInput'
 import { Login } from './styles';
+import backend from '../../api'
 
-export default ({ enviaLogin, valorInputEmail, setValorInputEmail, valorInputSenha, setValorInputSenha, setEnviaNomeLogin }) => {
+export default function PaginaLogin() {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const { login } = backend;
 
-  // Email e senha para teste: Email: email@algo.com.br, Senha: 123456
+  const [mensagemBoolean, setMensagemBoolean] = useState(false);
+  const [input, setInput] = useState({
+    'text': '',
+    'email': '',
+    'password': '',
+    'number': 0
+  });
 
-  const [enviaMensagemAlerta, setEnviaMensagemAlerta] = useState(false);
+  function onSubmitLogin(event) {
+    event.preventDefault();
 
-  function onSubmitLogin(evento) {
-    evento.preventDefault();
-
-    const loginFiltrado = enviaLogin.filter(lista => lista.email.includes(valorInputEmail));
-    if (loginFiltrado <= 0) {
-      console.log('Email não cadastrado');
-      console.log(enviaMensagemAlerta);
-      setEnviaMensagemAlerta(true);
-    }
-
-    loginFiltrado.map(login => {
-      if (valorInputEmail == login.email && valorInputSenha == login.senha) {
-        setEnviaMensagemAlerta(false);
-        setEnviaNomeLogin(login.nome_usuario);
-        window.location.href = '/administracao';
-        console.log('Login efetuado com sucesso');
+    login.map(novoLogin => {
+      if (input.email == novoLogin.email && input.password == novoLogin.senha) {
+        console.log('Login efetuado com sucesso')
+        setMensagemBoolean(false)
+        navigate('/administracao', { state: novoLogin.usuario })
       } else {
-        console.log('Email ou senha invalidos');
-        console.log(enviaMensagemAlerta);
-        setEnviaMensagemAlerta(true);
+        console.log('Email ou senha não conferem, tente novamente.')
+        setMensagemBoolean(true)
+        location.pathname != '/login' && setMensagemBoolean(false)
       }
     })
   }
 
+  // Email e senha para teste: Email: email@algo.com.br, Senha: 123456
   return (
-    <Login>
-      <form className="login_form_container"
-        onSubmit={onSubmitLogin}
-      >
-        <label>Iniciar Sessão</label>
-        <div>
-          <InputEmail
-            placeholder='Escreva seu Email'
-            setValorInputEmail={setValorInputEmail}
-            enviaMensagemAlerta={enviaMensagemAlerta}
-            mensagemAlerta='Email ou senha invalidos' />
-        </div>
-        <div>
-          <InputSenha
-            placeholder='Escreva sua Senha'
-            setValorInputSenha={setValorInputSenha}
-          />
-        </div>
-        <div className="login_form_button">
-          <ButtonAzul text='Entrar' />
-        </div>
-      </form>
-    </Login>
+    <ContextInput.Provider value={{ input, setInput, mensagemBoolean }}>
+      <Login>
+        <form className="login_form_container"
+          onSubmit={(event) => onSubmitLogin(event)} >
+          <label>Iniciar Sessão</label>
+          <div>
+            <MensagemAlerta />
+            <Input
+              type='email'
+              placeholder='Escreva seu email'
+            />
+          </div>
+          <div>
+            <Input
+              type='password'
+              placeholder='Escreva sua senha'
+            />
+          </div>
+          <div className="login_form_button">
+            <ButtonAzul text='Entrar' />
+          </div>
+        </form>
+      </Login>
+    </ContextInput.Provider>
   )
 }

@@ -1,41 +1,31 @@
-import React from 'react';
-import { BiSearchAlt2 } from 'react-icons/bi';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { InputPesquisaContainer } from './styles';
+import { InputPesquisaWrapper } from './styles';
+import { BiSearchAlt2 } from 'react-icons/bi';
 
-export default function InputPesquisa({ placeholder, name, setEnviaPesquisa }) {
-
+export default function InputPesquisa() {
   const navigateSearch = useNavigate();
 
   function pesquisa(event) {
-
     event.preventDefault();
-    const palavraPesquisada = event.target.value;
+    const input = document.querySelector('.form_inputPesquisa');
 
-    if (event.code == 'Enter' && palavraPesquisada) {
-      setEnviaPesquisa(palavraPesquisada);
-
-      if (window.location.pathname == '/listapesquisa') {
-        // Executa um bloco de funções caso já estiver na página
-        console.log('Estamos na pagina da lista')
-
-      } else {
-        // É redirecionado para a página de pesquisa
-        navigateSearch('/listapesquisa');
-      }
+    if (input.value) {      
+      navigateSearch('/listapesquisa', { state: input.value });
     }
   }
 
   return (
-    <InputPesquisaContainer>
-      <input className="form_inputPesquisa"
-        onKeyUp={pesquisa}
-        data-form_inputpesquisa
-        type='search'
-        name={name} id={name}
-        placeholder={placeholder}
-      />
-      <span className="lupa_icon"><BiSearchAlt2 /></span>
-    </InputPesquisaContainer>
+    <InputPesquisaWrapper>
+      <form className='form_container'
+        onSubmit={(event) => pesquisa(event)}
+      >
+        <input className="form_inputPesquisa"
+          type='text'
+          placeholder='O que deseja encontrar?'
+        />
+        <span className="lupa_icon"><BiSearchAlt2 /></span>
+      </form>
+    </InputPesquisaWrapper>
   )
 }

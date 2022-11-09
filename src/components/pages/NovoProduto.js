@@ -1,84 +1,78 @@
 import { React, useState } from 'react';
+import { IoMdImage } from 'react-icons/io';
+
 import Button from '../buttons/Button';
 import Input from '../form/Input'
-import { IoMdImage } from 'react-icons/io';
 import ButtonAzul from '../buttons/ButtonAzul';
-import InputNumber from '../form/InputNumber';
+import ContextInput from '../../common/context/ContextInput';
+import MensagemAlerta from '../form/MensagemAlerta';
+
+import backend from '../../api';
+import { v4 as uuidv4 } from 'uuid';
 import { NovoProduto } from './styles';
 
-export default ({ setValorInputNumber, valorInputNumber, setValorInput, valorInput, enviaProdutos }) => {
+export default function PaginaNovoProduto() {
+  const { produtos } = backend;
+  const [mensagemBoolean, setMensagemBoolean] = useState(false);
+  const [inputTextArea, setInputTextArea] = useState('');
+  const [input, setInput] = useState({
+    'text': '',
+    'email': '',
+    'password': '',
+    'number': 0
+  });
 
-  const [valorTextArea, setValorTextArea] = useState('');
+  function submitProduto(event) {
+    event.preventDefault();
+    if(input.text && input.number && inputTextArea) {
+      const inputNumber = `R$ ${input.number},00`;
+      setMensagemBoolean(false);
 
-  function submitProduto(evento) {
-    evento.preventDefault();
-
-    // Todas as letras acentuadas ou não; não pode numeros; e deve ter mais que 3 caracteres.
-    const objRegexInput = /^[a-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÒÖÚÇÑ ]{3,}$/gi;
-    const inputMatch = objRegexInput.test(valorInput);
-
-    // Minimo de 10 caracteres quaisquer.
-    const objRegexTextArea = /^.{10,}$/gi;
-    const textAreaMatch = objRegexTextArea.test(valorTextArea);
-
-    if (inputMatch && textAreaMatch && valorInputNumber) {
-
-      // Observação: O "enviaProduto" vem da Fake API (my-json-server.typicode.com), porém as informações estão sendo armazenadas no localhost. Para que tudo ocorra normalmente, o envio e armazenamento das informações devem vir exatamente do mesmo lugar.
-      // Para funcionar certo talvez eu tenha que colocar esta linha em um State;
-      const ultimoId = enviaProdutos.length + 1;
-      const valorProduto = `R$ ${valorInputNumber},00`;
-
-      fetch('http://localhost:3001/produtos', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          "id": ultimoId,
-          "nome": valorInput,
-          "valor": valorProduto,
-          "imagem": "link da imagem",
-          "img_large": "link da imagem larga",
-          "categoria": "Adicionar uma categoria",
-          "descricao": valorTextArea
+      produtos.push({
+          'id': uuidv4(),
+          'nome': input.text,
+          'valor': inputNumber,
+          'descricao': inputTextArea
         })
-      })
-        .then(() => console.log('Novo produto adicionado com sucesso'))
-        .catch(erro => console.log(erro))
-    } else {
-      console.log('Preencha corretamente o cadastro do produto')
+        console.log('Cadastro feito com sucesso.')
+    }else{
+      console.log('Não foi possível cadastrar o produto. Confira se todos os campos foram preenchidos.')
+      setMensagemBoolean(true)
+      location.pathname != '/novoproduto' && setMensagemBoolean(false)
     }
   }
 
   return (
-    <NovoProduto>
-      <div className="novoProduto_container">
-        <h2>Adicionar novo produto</h2>
-        <div className="novoProduto_cadastro_container">
-          <div className="novoProduto_cadastro_img">
-            <div className="img_icon">
-              <IoMdImage />
+    <ContextInput.Provider value={{ input, setInput, mensagemBoolean }} >
+      <NovoProduto>
+        <div className="novoProduto_container">
+          <h2>Adicionar novo produto</h2>
+          <div className="novoProduto_cadastro_container">
+            <div className="novoProduto_cadastro_img">
+              <div className="img_icon">
+                <IoMdImage />
+              </div>
+              <p>Arraste para adicionar uma imagem para o produto</p>
             </div>
-            <p>Arraste para adicionar uma imagem para o produto</p>
+            <p className="novoProduto_ouText">Ou</p>
+            <Button text='Procure no seu computador' />
           </div>
-          <p className="novoProduto_ouText">Ou</p>
-          <Button text='Procure no seu computador' />
+          <MensagemAlerta />
+          <form className="novoProduto_form_container"
+            onSubmit={submitProduto} >
+            <Input
+              type='text'
+              placeholder='Nome do produto' />
+            <Input
+              type='number'
+              placeholder='Preço do produto' />
+            <textarea
+              placeholder='Descrição do produto'
+              onChange={evento => setInputTextArea(evento.target.value)} />
+            <ButtonAzul text='Adicionar produto' />
+          </form>
         </div>
-        <form className="novoProduto_form_container"
-          onSubmit={submitProduto}
-        >
-          <Input type='text'
-            placeholder='Nome do produto'
-            setValorInput={setValorInput} />
-          <InputNumber
-            placeholder='Preço do produto'
-            setValorInputNumber={setValorInputNumber} />
-          <textarea
-            placeholder='Descrição do produto'
-            onChange={evento => setValorTextArea(evento.target.value)} />
-          <ButtonAzul text='Adicionar produto' />
-        </form>
-      </div>
-    </NovoProduto>
+      </NovoProduto>
+    </ContextInput.Provider>
   )
 }

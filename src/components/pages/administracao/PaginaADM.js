@@ -1,12 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import AdmCard from './AdmCard';
 import { PaginaADM } from './styles';
 
-export default ({ enviaNomeLogin }) => {
-
-  // Não estou conseguindo receber o enviaNomeLogin (talvez por ser assincrono)
-  const nomeUsuario = 'Nome do Administrador';
+export default () => {
+  const location = useLocation();
+  const nomeUsuario = location.state;
 
   return (
     <>

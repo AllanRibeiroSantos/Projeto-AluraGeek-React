@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Cardimage = styled.div`
+export const CardimageWrapper = styled.div`
   &:not(:last-child) {
     margin-right: 1rem;
   }
@@ -24,6 +24,7 @@ export const Cardimage = styled.div`
 
   .card_ver_produto {
     color: var(--cor_azul);
+    cursor: pointer;
   }
 
   @media screen and (max-width: 1024px) {

@@ -1,10 +1,12 @@
-import React from 'react';
-import Cardimage from './Cardimage';
-import { AiOutlineArrowRight } from 'react-icons/ai';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import Cardimage from './Cardimage';
 import { ListaProdutosPaginaInicial } from './styles';
+import { AiOutlineArrowRight } from 'react-icons/ai';
+import backend from '../../api.js';
+import { v4 as uuidv4 } from 'uuid';
 
-export default ({ categoriaProduto, idProdutoClicado, enviaProdutos }) => {
+export default ({ categoriaProduto }) => {
   return (
     <ListaProdutosPaginaInicial>
       <div className="main_categoria_container">
@@ -15,16 +17,17 @@ export default ({ categoriaProduto, idProdutoClicado, enviaProdutos }) => {
       </div>
 
       <div className="section_card_container">
-        {enviaProdutos.map(card => (
-          categoriaProduto == card.categoria &&
+        {backend.produtos.map(produto => (
+          categoriaProduto == produto.categoria &&
           <Cardimage
-            key={card.id}
-            nome_produto={card.nome}
-            preco_produto={card.valor}
-            to={'/produto/' + card.id} // Redirecionamento
-            cardsrc={card.imagem} //URL da imagem
-            idProdutoClicado={idProdutoClicado}
-            id_key={card.id}
+            key={uuidv4()}
+            idProduto={produto.id}
+            nome={produto.nome}
+            valor={produto.valor}
+            imagem={produto.imagem}
+            imagemLarge={produto.img_large}
+            categoria={produto.categoria}
+            descricao={produto.descricao}
           />
         ))}
       </div>

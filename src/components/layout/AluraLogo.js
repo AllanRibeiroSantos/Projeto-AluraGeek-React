@@ -1,10 +1,10 @@
 import React from 'react';
 import alurageeklogo from '../../img/alurageeklogo.svg'
-import { AluraLogo } from './styles';
+import { LogoWrapper } from './styles';
 
-export default () => {
+export default function AluraLogoFooter () {
   return (
-    <AluraLogo>
+    <LogoWrapper>
       <img className="container_logo"
         src={alurageeklogo}
         alt='Logo AluraGeek' />
@@ -14,6 +14,6 @@ export default () => {
         </span>
         Geek
       </p>
-    </AluraLogo>
+    </LogoWrapper>
   )
 }

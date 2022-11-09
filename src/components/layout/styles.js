@@ -1,27 +1,27 @@
 import styled from "styled-components";
 
-export const AluraLogo = styled.div`
-display: flex;
-align-items: center;
-color: #000;
+export const LogoWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  color: #000;
 
-.header_logoName {
-  color: var(--cor_azul);
-  margin-left: 2px;
-}
-
-@media screen and (max-width: 1024px) { 
-  .container_logo {
-    width: 22.74px;
+  .header_logoName {
+    color: var(--cor_azul);
+    margin-left: 2px;
   }
 
-  & p {
-    font-size: var(--tamanho_fonte10);
+  @media screen and (max-width: 1024px) { 
+    .container_logo {
+      width: 22.74px;
+    }
+
+    & p {
+      font-size: var(--tamanho_fonte10);
+    }
   }
-}
 `;
 
-export const AluraLogoFooter = styled.div`
+export const LogoFooterWrapper = styled.div`
   display: flex;
   align-items: center;
 
@@ -31,7 +31,7 @@ export const AluraLogoFooter = styled.div`
   }
 `;
 
-export const Banner = styled.div`
+export const BannerWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -98,7 +98,7 @@ export const Banner = styled.div`
   }
 `;
 
-export const Footer = styled.footer`
+export const FooterWrapper = styled.footer`
   .footer_area {
     background-color: var(--fundo_azul_claro);
     padding: 4rem 0;
@@ -225,7 +225,7 @@ export const Footer = styled.footer`
   }
 `;
 
-export const Header = styled.header`
+export const HeaderWrapper = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;

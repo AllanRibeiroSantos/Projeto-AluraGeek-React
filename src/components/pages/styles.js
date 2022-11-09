@@ -119,6 +119,7 @@ export const NovoProduto = styled.section`
     justify-content: space-between;
     align-items: center;
     margin-top: 1rem;
+    margin-bottom: 1rem;
   }
 
   .novoProduto_cadastro_container p {

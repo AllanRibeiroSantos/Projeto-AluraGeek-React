@@ -8,8 +8,7 @@ export default () => {
   }
 
   return (
-    <ButtonArrow
-      onClick={teste}>
+    <ButtonArrow onClick={teste}>
       {">"}
     </ButtonArrow>
   )

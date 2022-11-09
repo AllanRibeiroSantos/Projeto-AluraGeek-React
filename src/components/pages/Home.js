@@ -1,19 +1,19 @@
-import React from 'react';
 import ListaProdutosPaginaInicial from '../ListaProdutos/ListaProdutosPaginaInicial';
 import Banner from '../layout/Banner';
+import backend from '../../api';
+import { v4 as uuidv4 } from 'uuid';
 
-export default function Home({ idProdutoClicado, enviaProdutos, enviaCategorias }) {
+export default function Home() {
+  const { categorias } = backend;  
   return (
     <>
       <Banner
         titulo='Dezembro Promocional'
         descricao='Produtos selecionados com 33% de desconto' />
-      {enviaCategorias.map(categorias => (
+      {categorias.map( categoria => (
         <ListaProdutosPaginaInicial
-          categoriaProduto={categorias.nome}
-          key={categorias.id}
-          idProdutoClicado={idProdutoClicado}
-          enviaProdutos={enviaProdutos}
+          key={uuidv4()}
+          categoriaProduto={categoria.nome}
         />
       ))}
     </>

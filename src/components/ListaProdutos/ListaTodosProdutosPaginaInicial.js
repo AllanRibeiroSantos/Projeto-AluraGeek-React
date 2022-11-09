@@ -1,11 +1,9 @@
-import React from 'react';
+import backend from '../../api';
 import Cardimage from './Cardimage';
 import { ListaTodosProdutosPaginaInicial } from './styles';
+import { v4 as uuidv4 } from 'uuid';
 
-export default ({ enviaProdutos, idProdutoClicado }) => {
-
-  // Dados da API vindo diretamente do App
-
+export default () => {
   return (
     <>
       <ListaTodosProdutosPaginaInicial>
@@ -13,29 +11,29 @@ export default ({ enviaProdutos, idProdutoClicado }) => {
           <h2>Todos os produtos</h2>
         </div>
         <div className="todosProdutos_container">
-          {enviaProdutos.map(card => (
-            <div>
+          {backend.produtos.map(produto => (
+            <div key={uuidv4()}>
               <Cardimage
-                key={card.id}
-                nome_produto={card.nome}
-                preco_produto={card.valor}
-                to={'/produto/' + card.id} // Redirecionamento
-                cardsrc={card.imagem} //URL da imagem
-                idProdutoClicado={idProdutoClicado}
-                id_key={card.id}
+                idProduto={produto.id}
+                nome={produto.nome}
+                valor={produto.valor}
+                imagem={produto.imagem}
+                imagemLarge={produto.img_large}
+                categoria={produto.categoria}
+                descricao={produto.descricao}
               />
             </div>
           ))}
-          {enviaProdutos.map(card => (
-            <div>
-              <Cardimage
-                key={card.id}
-                nome_produto={card.nome}
-                preco_produto={card.valor}
-                to={'/produto/' + card.id} // Redirecionamento
-                cardsrc={card.imagem} //URL da imagem
-                idProdutoClicado={idProdutoClicado}
-                id_key={card.id}
+          {backend.produtos.map(produto => (
+            <div key={uuidv4()}>
+               <Cardimage
+                idProduto={produto.id}
+                nome={produto.nome}
+                valor={produto.valor}
+                imagem={produto.imagem}
+                imagemLarge={produto.img_large}
+                categoria={produto.categoria}
+                descricao={produto.descricao}
               />
             </div>
           ))}

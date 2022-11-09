@@ -3,8 +3,11 @@ import ButtonAzul from '../../buttons/ButtonAzul';
 import CardimageTodosProdutos from '../../ListaProdutos/CardimageTodosProdutos';
 import { Link } from 'react-router-dom';
 import { TodosProdutosEdicao } from './styles';
+import backend from '../../../api';
+import { v4 as uuidv4 } from 'uuid';
 
-export default ({ enviaProdutos, idProdutoClicado }) => {
+export default () => {
+  const { produtos } = backend;
   return (
     <>
       <TodosProdutosEdicao>
@@ -15,31 +18,31 @@ export default ({ enviaProdutos, idProdutoClicado }) => {
           </Link>
         </div>
         <div className="todosProdutos_container">
-          {enviaProdutos.map(card => (
-            <div>
+          {produtos.map(produto => (
+            <div key={uuidv4()}>
               <CardimageTodosProdutos
-                key={card.id}
-                nome_produto={card.nome}
-                preco_produto={card.valor}
-                to={'/produto/' + card.id} // Redirecionamento
-                cardsrc={card.imagem} //URL da imagem
-                idProdutoClicado={idProdutoClicado}
-                id_key={card.id}
+                idProduto={produto.id}
+                nome={produto.nome}
+                valor={produto.valor}
+                imagem={produto.imagem}
+                imagemLarge={produto.img_large}
+                categoria={produto.categoria}
+                descricao={produto.descricao}
               />
             </div>
           ))}
-          {enviaProdutos.map(card => (
-            <div>
-              <CardimageTodosProdutos
-                key={card.id}
-                nome_produto={card.nome}
-                preco_produto={card.valor}
-                to={'/produto/' + card.id} // Redirecionamento
-                cardsrc={card.imagem} //URL da imagem
-                idProdutoClicado={idProdutoClicado}
-                id_key={card.id}
-              />
-            </div>
+          {produtos.map(produto => (
+            <div key={uuidv4()}>
+            <CardimageTodosProdutos
+              idProduto={produto.id}
+              nome={produto.nome}
+              valor={produto.valor}
+              imagem={produto.imagem}
+              imagemLarge={produto.img_large}
+              categoria={produto.categoria}
+              descricao={produto.descricao}
+            />
+          </div>
           ))}
         </div>
       </TodosProdutosEdicao>
