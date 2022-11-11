@@ -252,3 +252,15 @@ export const HeaderWrapper = styled.header`
     }
   }
 `;
+
+export const LoadingWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  color: #777;
+
+  & p {
+    padding: 1rem 0 1rem 0;
+  }
+`;
