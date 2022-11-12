@@ -4,26 +4,25 @@
 Foi desenvolvido através do Alura Challenges, que são projetos onde os alunos aplicam seus conhecimentos sem muita supervisão dos instrutores, a idéia é simular uma rotina de trabalho, utilizando ferramentas como o Trello, Notion e Figma. Os instrutores uma vez por semana apresentam as funcionalidades que devem ter no projeto e auxiliam os alunos em problemas pontuais encontrados no projeto.
 
 A propósta era fazer um site de venda de produtos nerd e nele eu apliquei:
-- HTML e CSS: Básico e avançado;
-- Responsividade;
+- HTML e CSS: 
+  - Básico e avançado;
+  - Styled Components;
+  - Responsividade;
 - Utilização de uma API fake;
 - Validação de formulários;
-- Utilização de pesquisa de produtos;
+- Utilização do campo de pesquisa de produtos;
+- Otimização de páginas, através do react.lazy/suspense e react memo;
 - React;<br>
 	Hooks utilizados:
-	- useState e useEffect;
+	- useState;
+	- useEffect;
+	- useNavigate;
+	- useLocation;
+	- useMemo;
 
 Também deve conter:
 - Área de usuário, pós login;
 	- Área para edição de produtos;
-- Campo de pesquisa de produtos;
-- Formulário para enviar mensagens ao administrador no rodapé;
-
-**Dependências necessárias para rodar o projeto**
-- npm install react-scripts@latest
-- npm install react-icons --save
-- npm install react-router-dom
-- npm install json-server
 
 ### Projeto: Ilustrações
 
@@ -45,12 +44,7 @@ Ou na página de Produtos, onde foi fornecido imagens de formatos completamente 
 Em ambos os casos, para conseguir achar um meio termo em que todas as imagens/tamanho de tela ficassem razoavelmente boas foi bem difícil.
 
 ### Alguns problemas para serem corrigidos
-Existe uma lista de bugs e funcionalidades bem grande que eu ainda não consegui arrumar. Estas funcionalidades serão corrigidas e refatoradas aos poucos conforme o tempo.
-
-- Antes do carregamento da API na página inicial o header fica colado com o footer, eu deveria adicionar algum espaçamento entre eles ou algum icone para mostrar que a API ainda está carregando;
-- As vezes acontece o erro na página Home: TypeError: NetworkError when attempting to fetch resource;
-- Corrigir todos os problemas de 'Each child in a list should have a unique "key" prop';
-- Arrumar o erro que está dando no ReactDOM que fala que não é mais suportado ao React 18;<br><br>
+Existe alguns bugs e funcionalidades que ainda não consegui arrumar. Estas funcionalidades serão corrigidas e refatoradas aos poucos conforme o tempo.<br><br>
 
   **Header**
   - Final do botão não está alinhado com o conteúdo abaixo (main);
@@ -58,30 +52,6 @@ Existe uma lista de bugs e funcionalidades bem grande que eu ainda não consegui
 
   **ListaProdutosPaginaInicial**
   - Adicionar um botão (funcional) para rodar os produtos, enquanto ainda está no tamanho desktop;
-
-  **Produto**
-  - Quando der F5 na página, todas as informações do produto são perdidos;
-
-  **ListaPesquisa**
-  - Os valores da pesquisa vindo de outras páginas não estão sendo carregados, são carregados apenas os valores da pŕopria página;
-  - Rever a sintaxe do toLowerCase;
-
-  **Media Query**
-  - Acredito que os produtos devem ficar centralizados ao invéz de ter um espaçamento fixo de margem;
-  - Corrigir tela de login, tablet, em alguns casos esta com o espaçamento de footer errado;
-
-  **Textarea**
-  - Conteúdo escrito está em cor cinza, deve ser preto;
-
-  **Link**
-  - Estou perdendo todo o CSS de hover quando é utilizado o componente Link (react-router-dom);
-  - Para redirecionar, tentar utilizar outro método que não seja o window.location.href (Barra de pesquisa, Login);
-
-  **PaginaADM**
-  - Fazer com que o sistema pegue o nome do Usuário logado, e coloca-lo na frase de "Seja bem vindo (nome)";
-
-  **Input**
-  - Eu simplesmente não estou conseguindo fazer um Input reaproveitavel;
 
 Para uma visualização melhor do projeto veja no meu canal do Youtube, lá eu faço videos curtos onde eu mostro cada um deles.
 
